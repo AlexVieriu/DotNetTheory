@@ -7,15 +7,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NickChapsas_DI_notWorking",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DipendencyInjection", "DipendencyInjection", "{1E5BEDD3-26D1-4CE3-8A01-ABE4DDCA5B12}"
 EndProject
-<<<<<<< HEAD
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNet6", "DotNet6", "{CE59FC97-880D-4C52-9C3A-425F00A439FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON serialization with Source Generators", "JSON serialization with Source Generators\JSON serialization with Source Generators.csproj", "{1EE73042-75AD-49B5-A22D-AD58EDE10493}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheSimpleEngineer_DI", "TheSimpleEngineer_DI\TheSimpleEngineer_DI.csproj", "{10B5A3D6-7AA2-4711-8B6F-03442DDC077F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSON serialization with Source Generators", "JSON serialization with Source Generators\JSON serialization with Source Generators.csproj", "{1EE73042-75AD-49B5-A22D-AD58EDE10493}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimCorey_DI_with_Autofac", "TimCorey_DI_with_Autofac\TimCorey_DI_with_Autofac.csproj", "{150524CE-B610-400B-B765-1703DA8D6B6E}"
->>>>>>> 8228243b9b7d6f1d402f1f2c460dbbea540044a5
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheSimpleEngineer_DI", "TheSimpleEngineer_DI\TheSimpleEngineer_DI.csproj", "{10B5A3D6-7AA2-4711-8B6F-03442DDC077F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimCorey_DI_with_Autofac", "TimCorey_DI_with_Autofac\TimCorey_DI_with_Autofac.csproj", "{150524CE-B610-400B-B765-1703DA8D6B6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{6913B846-8FB4-4B17-9A00-6DCE9F053C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromAttributes_API", "FromAttributes_API\FromAttributes_API.csproj", "{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D472BA5-58CC-44B0-B934-5CB8B4E0429B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,12 +34,10 @@ Global
 		{B9ADF412-4C0D-4489-80FA-49C7E78D9EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9ADF412-4C0D-4489-80FA-49C7E78D9EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9ADF412-4C0D-4489-80FA-49C7E78D9EDC}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{1EE73042-75AD-49B5-A22D-AD58EDE10493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1EE73042-75AD-49B5-A22D-AD58EDE10493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EE73042-75AD-49B5-A22D-AD58EDE10493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EE73042-75AD-49B5-A22D-AD58EDE10493}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{10B5A3D6-7AA2-4711-8B6F-03442DDC077F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10B5A3D6-7AA2-4711-8B6F-03442DDC077F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10B5A3D6-7AA2-4711-8B6F-03442DDC077F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,19 +46,20 @@ Global
 		{150524CE-B610-400B-B765-1703DA8D6B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{150524CE-B610-400B-B765-1703DA8D6B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{150524CE-B610-400B-B765-1703DA8D6B6E}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 8228243b9b7d6f1d402f1f2c460dbbea540044a5
+		{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B9ADF412-4C0D-4489-80FA-49C7E78D9EDC} = {1E5BEDD3-26D1-4CE3-8A01-ABE4DDCA5B12}
-<<<<<<< HEAD
 		{1EE73042-75AD-49B5-A22D-AD58EDE10493} = {CE59FC97-880D-4C52-9C3A-425F00A439FC}
-=======
 		{10B5A3D6-7AA2-4711-8B6F-03442DDC077F} = {1E5BEDD3-26D1-4CE3-8A01-ABE4DDCA5B12}
 		{150524CE-B610-400B-B765-1703DA8D6B6E} = {1E5BEDD3-26D1-4CE3-8A01-ABE4DDCA5B12}
->>>>>>> 8228243b9b7d6f1d402f1f2c460dbbea540044a5
+		{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D} = {6913B846-8FB4-4B17-9A00-6DCE9F053C4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82D514E2-5292-4785-B284-A918BA560F1D}

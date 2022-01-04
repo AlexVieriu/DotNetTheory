@@ -9,7 +9,7 @@ var services = new DiServiceCollection();
 //services.RegisterSingleton<RandomGuidGenerator>();
 //services.RegisterTransient<RandomGuidGenerator>();
 
-services.RegisterTransient<ISomeService, ServiceOne>();
+//services.RegisterTransient<ISomeService, ServiceOne>();
 
 var container = services.GenerateContainer();
 
