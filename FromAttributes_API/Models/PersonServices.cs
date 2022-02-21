@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Api_FromAttributes.Models
+﻿namespace Api_FromAttributes.Models
 {
     public class PersonServices : IPersonServices
     {

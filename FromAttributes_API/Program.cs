@@ -1,8 +1,12 @@
+using Api_FromAttributes.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IPersonServices, PersonServices>();
 
 var app = builder.Build();
 

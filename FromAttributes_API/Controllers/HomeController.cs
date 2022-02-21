@@ -14,10 +14,11 @@ public class HomeController : ControllerBase
         _person = person;
     }
 
-    [HttpGet("FromRoute/{id:int}")]    
-    public IActionResult FromRoute([FromRoute] int id)
+    [HttpGet()]
+    [Route("FromRoute/{serie_polita}/{nr_polita}")]
+    public IActionResult FromRoute([FromRoute] string serie_polita, [FromRoute] int nr_polita)
     {
-        return Ok(new { IdPerson = id });
+        return Ok(new { SeriePolita = serie_polita, Nr_Polita = nr_polita });
     }
 
     [HttpGet("FromQuery")]
@@ -27,9 +28,9 @@ public class HomeController : ControllerBase
     }
 
     [HttpGet("FromHeader")]
-    public IActionResult FromHeader([FromHeader] string cookie)
+    public IActionResult FromHeader([FromHeader] string Accept)
     {
-        return Ok($"Header: {cookie}");
+        return Ok($"Header: {Accept}");
     }
 
     [HttpGet("FromHeader2")]
