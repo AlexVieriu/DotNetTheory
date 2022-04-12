@@ -1,9 +1,6 @@
-// https://www.youtube.com/watch?v=5tYSO5mAjXs&t=1927s&ab_channel=IAmTimCorey
-
-using MinimalAPIs;
-
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Services
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -12,6 +9,7 @@ builder.Services.AddSingleton<IUserData, UserData>();
 
 var app = builder.Build();
 
+// Configure Middlewares
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -20,6 +18,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
+// Minimal Apis
 app.ConfigureApi();
 
 app.Run();

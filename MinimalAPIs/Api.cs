@@ -1,6 +1,4 @@
-﻿using MinimalAPIs.Models;
-
-namespace MinimalAPIs;
+﻿namespace MinimalAPIs;
 public static class Api
 {    
     public static void ConfigureApi(this WebApplication app)
@@ -13,7 +11,7 @@ public static class Api
         app.MapDelete("/Users", DeleteUser);    
     }
 
-    // if you have more then two lines in the API, put that in the Bussines Logic, a less in the API
+    // if you have more then two lines in the API, put that in the Bussines Logic and less in the API
     private static async Task<IResult> GetUsers(IUserData data)
     {
         try {

@@ -17,14 +17,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimCorey_DI_with_Autofac", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{6913B846-8FB4-4B17-9A00-6DCE9F053C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromAttributes_API", "FromAttributes_API\FromAttributes_API.csproj", "{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FromAttributes_API", "FromAttributes_API\FromAttributes_API.csproj", "{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D472BA5-58CC-44B0-B934-5CB8B4E0429B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{8D472BA5-58CC-44B0-B934-5CB8B4E0429B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPIs", "MinimalAPIs\MinimalAPIs.csproj", "{1DFE775F-ED4E-46CA-8432-D37E4052D90E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalAPIs", "MinimalAPIs\MinimalAPIs.csproj", "{1DFE775F-ED4E-46CA-8432-D37E4052D90E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
