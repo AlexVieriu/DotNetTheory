@@ -9,15 +9,11 @@ builder.Services.AddSingleton<IUserData, UserData>();
 
 var app = builder.Build();
 
-// Configure Middlewares
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Configure 
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-
 
 // Minimal Apis
 app.ConfigureApi();
