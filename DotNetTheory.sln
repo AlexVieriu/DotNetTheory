@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalAPIs", "MinimalAPIs\MinimalAPIs.csproj", "{1DFE775F-ED4E-46CA-8432-D37E4052D90E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleOrDefaultVsFirstOrDefault", "SingleOrDefaultVsFirstOrDefault\SingleOrDefaultVsFirstOrDefault.csproj", "{104C8558-7A96-4288-8B90-E20DF0582DB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{1DFE775F-ED4E-46CA-8432-D37E4052D90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DFE775F-ED4E-46CA-8432-D37E4052D90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DFE775F-ED4E-46CA-8432-D37E4052D90E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104C8558-7A96-4288-8B90-E20DF0582DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104C8558-7A96-4288-8B90-E20DF0582DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104C8558-7A96-4288-8B90-E20DF0582DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104C8558-7A96-4288-8B90-E20DF0582DB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{150524CE-B610-400B-B765-1703DA8D6B6E} = {1E5BEDD3-26D1-4CE3-8A01-ABE4DDCA5B12}
 		{59ABE933-88FF-4FB8-8E60-DA43D20B0D5D} = {6913B846-8FB4-4B17-9A00-6DCE9F053C4D}
 		{1DFE775F-ED4E-46CA-8432-D37E4052D90E} = {CE59FC97-880D-4C52-9C3A-425F00A439FC}
+		{104C8558-7A96-4288-8B90-E20DF0582DB3} = {6913B846-8FB4-4B17-9A00-6DCE9F053C4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82D514E2-5292-4785-B284-A918BA560F1D}
