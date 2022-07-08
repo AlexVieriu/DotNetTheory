@@ -1,64 +1,51 @@
-﻿using SingleOrDefaultVsFirstOrDefault;
+﻿// https://www.youtube.com/watch?v=ZTWl2s8ScMc&ab_channel=NickChapsas
 
-/*
-Tutorial:
-http://www.technicaloverload.com/linq-single-vs-singleordefault-vs-first-vs-firstordefault/
+using BenchmarkDotNet.Running;
+using SingleOrDefaultVsFirstOrDefault;
 
-https://stackoverflow.com/questions/69765829/ef-core-firstordefault-vs-singleordefault-performance-comparison
-*/
+#region Example 1
 
-var employeers = new List<Employeer>() {
-    new Employeer(){ Employeeid = 1, LastName = "Davolio",  FirstName = "Nancy",    Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 2, LastName = "Fuller",   FirstName = "Andrew",   Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 3, LastName = "Leverling",FirstName = "Janet",    Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 4, LastName = "Peacock",  FirstName = "Margaret", Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 5, LastName = "Buchanan", FirstName = "Robert",   Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 6, LastName = "Suyama",   FirstName = "Michael",  Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 7, LastName = "King",     FirstName = "Robert",   Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 8, LastName = "Callahan", FirstName = "Laura",    Birthdate=DateTime.Now},
-    new Employeer(){ Employeeid = 9, LastName = "Dodsworth",FirstName = "Anne",     Birthdate=DateTime.Now}
-};
+//#region Console example
 
+//var users = new List<string> {
+//    "Nick Chapsas",
+//    "Chap Nicksas",
+//    "Sas Nickchap"
+//};
 
-//// -- Single --
-//var oneRecord = employeers.Single(e => e.Employeeid == 1);             // Should return this record.
-//var multipleRecords = employeers.Single(e => e.FirstName == "Robert"); // InvalidOperationException
-//var noRecord = employeers.Single(e => e.Employeeid == 10);             // InvalidOperationException
+//// First, FirstOrDefault
 
-//Console.WriteLine(oneRecord);
-//Console.WriteLine(multipleRecords);
-//Console.WriteLine(noRecord);
+//var first1 = users.First();                             // the first item in the list
+//var first2 = users.First(x => x.StartsWith("Chap"));    // the first item that start with "Chap"
+////var first3 = users.First(x => x.StartsWith("das"));   // Error
+
+//var firstOrDefault1 = users.FirstOrDefault(x => x.StartsWith("das"), "N/A"); // "N/A"( or NULL if we don't set default value)
+
+//Console.WriteLine(first1);
+//Console.WriteLine(first2);
+////Console.WriteLine(first3);
+//Console.WriteLine(firstOrDefault1);
 
 
-//// -- SingleOrDefault --
-//var oneRecord = employeers.SingleOrDefault(e => e.Employeeid == 1);             // Should return this record.
-//var multipleRecords = employeers.SingleOrDefault(e => e.FirstName == "Robert"); // InvalidOperationException
-//var noRecord = employeers.SingleOrDefault(e => e.Employeeid == 10);             // NULL
+//// Single, SingleOrDefault
 
-//Console.WriteLine(oneRecord);
-//Console.WriteLine(multipleRecords);
-//Console.WriteLine(noRecord);
+//var single1 = users.Single();                           // Error
+//var single2 = users.Single(x => x.StartsWith("Chap"));  // Chap
+//var single3 = users.Single(x => x.StartsWith("das"));   // Error
 
+//var singleOrDefault = users.SingleOrDefault(x => x.StartsWith("das"), "N/A");
 
-//// -- First --
-//var oneRecord = employeers.First(e => e.Employeeid == 1);                       // Should return this record.
-//var multipleRecords = employeers.First(e => e.FirstName == "Robert");           // Shloud return first record
-//var noRecord = employeers.First(e => e.Employeeid == 10);                       // InvalidOperationException
-
-//Console.WriteLine(oneRecord);
-//Console.WriteLine(multipleRecords);
-//Console.WriteLine(noRecord);
+//#endregion
+#endregion
 
 
-//// -- FirstOrDefault --
-//var oneRecord = employeers.First(e => e.Employeeid == 1);                       // Should return this record.
-//var multipleRecords = employeers.First(e => e.FirstName == "Robert");           // Shloud return first record
-//var noRecord = employeers.First(e => e.Employeeid == 10);                       // NULL
+#region Example 2
 
-//Console.WriteLine(oneRecord);
-//Console.WriteLine(multipleRecords);
-//Console.WriteLine(noRecord);
+//#region Service example
 
+//BenchmarkRunner.Run<Benchmarks>();
 
+//#endregion
 
+#endregion
 
