@@ -1,7 +1,6 @@
 ﻿namespace HttpClientFactory.Controllers;
 
 [ApiController]
-[Route("[controller]")]
 
 public class WeatherForecastController : ControllerBase
 {
@@ -13,7 +12,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet("weather/{city}")]
-    public async Task<ActionResult<WeatherResponse>> Forecast(string city)
+    public async Task<IActionResult> Forecast(string city)
     {
         var weather = await _weatherClient.GetCurrentWeatherForCast(city);
 

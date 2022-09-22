@@ -1,6 +1,5 @@
 ﻿-------------- Microsoft Documentation --------------
 
-
 1. Issues with the original HttpClient class available in .NET
 
 -> when the HttpClient object gets disposed and the underlying socket is not immediately released, which can 

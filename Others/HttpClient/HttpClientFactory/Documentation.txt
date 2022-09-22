@@ -5,8 +5,12 @@
                                     https://www.youtube.com/watch?v=9pgvX_Dk0n8&ab_channel=NickChapsas
 
 HttpClient: 
--> when creating a HttpClient it automatically creates HttpClientHandler
+-> when creating a HttpClient it automatically creates HttpClientHandler at ctor lvl
+-> HttpClient : HttpMessageInvoker
+    -> HttpMessageInvoker : IDisposable
 
+-> if the traffic increase, socket exhaustion will come
+-> dont use "using" statemanet when creating HttpClient object
 
 -> using HttpClientFactory:
     -> HttpClient is transient
