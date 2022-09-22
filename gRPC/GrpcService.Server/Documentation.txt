@@ -1,0 +1,101 @@
+﻿Part1: https://www.youtube.com/watch?v=hp5FTB7PI9s&ab_channel=NickChapsas
+Part2: https://www.youtube.com/watch?v=F2T6xNRoa1E&ab_channel=NickChapsas
+Part3: https://www.youtube.com/watch?v=DNxdvRQ4qRQ&ab_channel=NickChapsas
+Part4: https://www.youtube.com/watch?v=wY4nMSUF9e0&ab_channel=NickChapsas
+
+
+Part1:
+
+Usage:
+-> for internal communicaiton of applications(microservices that are not outside of the company)
+
+Advantages:
+-> use HTTP2 (supports bidirectional Streaming)
+-> use prodobuff(defines common contract)
+
+
+-- greet.proto(5:40) --
+
+syntaxt = "proto3" 
+-> if we don't specify it, it will use proto2, that has less syntax
+
+
+option csharp_namespace = "GrpcServer.Server"
+-> the namespace of the code generation which is creating the service/server 
+around greet.proto file
+
+
+package greet
+-> the package where the protofile lives
+-> if we have versioning, we can add it: package greet.v1
+
+
+service Greeter {
+ rpc SayHello (HelloRequest) returns (HelloReply)
+}
+
+-> SayHello is the method we call
+-> accepts a HelloRequest
+-> returns a HelloReply
+-> advantages:
+	-> it is statically typed
+	-> the contract specify clearly what we send and what we receive
+	-> the microservice documentation is in the code
+
+
+message HelloRequest {
+	string name = 1;	// at position 1 it expect the name
+}
+
+message HelloResponse {
+	string message = 1; // at position 1 it expect the message
+}
+
+-> when we change the position of a property, we brake the contract
+it is a different contract
+-> 
+
+
+-- GreeterService.cs --
+
+-> looks like every other service
+-> you can inject your services, database, data access layer
+
+
+public class GreeterService : Greeter.GreeterBase
+
+GreetGrpc.cs	-> GreetGrps.cs
+greet.cs		-> HelloRequest.cs, HelloReply.cs
+
+
+!! Program that can call gRPC : BoomRPC !!			
+https://github.com/bloomrpc/bloomrpc/releases : BloomRPC-Setup-1.5.3.exe
+
+(12:00)
+-> run the project 
+-> open BoomRPC
+-> put the port that the program is running on: 0.0.0.0:5251 (use 0.0.0.0:5251 instead of localhost:5251)
+
+
+(13:30)
+-> create protobuff file : Protos -> weather.proto
+
+-- GrpcService.Server.csproj -- 
+
+<ItemGroup>
+	<Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+	<Protobuf Include="Protos\weather.proto" GrpcServices="Server" />
+</ItemGroup>
+
+-> the compiler and the code generation see this, pick it up 
+and creates the service
+
+
+https://openweathermap.org/api
+https://openweathermap.org/api/one-call-3
+
+https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+https://home.openweathermap.org/api_keys
+
+https://api.openweathermap.org/data/3.0/onecall?lat=45.94&lon=24.96&exclude=hourly,daily&appid=24bfd9f72d8cbe62db76f22ee326b00e
+

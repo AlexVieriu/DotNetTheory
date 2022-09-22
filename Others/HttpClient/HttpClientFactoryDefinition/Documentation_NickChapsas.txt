@@ -1,0 +1,69 @@
+﻿https://www.youtube.com/watch?v=Z6Y2adsMnAA&ab_channel=NickChapsas
+-> explaning why you should not use 
+-> use polly library if you call multiple APIs
+    -> polly can give resiliance :  https://www.youtube.com/watch?v=DSMdUvL8N30&t=11s&ab_channel=LesJackson
+                                    https://www.youtube.com/watch?v=9pgvX_Dk0n8&ab_channel=NickChapsas
+
+-> using HttpClientFactory:
+    -> HttpClient is transient
+    -> HttpClientHandler is singleton 
+    (HttpClient -> #region Constructors: public HttpClient() : this(new HttpClientHandler()))
+    -> HttpHandlerType = = System.Net.Http.SocketsHttpHandler;
+
+-- program.cs --
+AddHttpClient
+
+public static IHttpClientBuilder AddHttpClient<TClient, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(
+    this IServiceCollection services, Action<HttpClient> configureClient)
+    where TClient : class
+    where TImplementation : class, TClient
+{
+    ThrowHelper.ThrowIfNull(services);
+    ThrowHelper.ThrowIfNull(configureClient);
+
+    AddHttpClient(services);
+
+    string name = TypeNameHelper.GetTypeDisplayName(typeof(TClient), fullName: false);
+    var builder = new DefaultHttpClientBuilder(services, name);
+    builder.ConfigureHttpClient(configureClient);
+    builder.AddTypedClientCore<TClient, TImplementation>(validateSingleType: true);
+    return builder;
+}
+
+AddHttpClient(services);
+
+services.TryAddTransient<HttpMessageHandlerBuilder, DefaultHttpMessageHandlerBuilder>();
+
+DefaultHttpMessageHandlerBuilder : it is what is seding the request
+
+(7:40)
+-> the heavy object is cashed in memory pulled and reused
+-> the client itself it is a thin object
+
+Typed Vs Named Client:
+
+a. Typed
+
+-- program.cs --
+
+builder.Services.AddHttpClient<IWheatherClient, OpenWeatherClient>(client => 
+{
+    client.BaseAddress = new Uri("");
+});
+
+
+-- OpenWeatherClient.cs --
+var client = _httpClientFactory.CreateClient();
+
+-> in httpClientFactory is called the Typed client: typeof(OpenWeatherClient)
+-> that HttpClient is rezolved with a specific typed
+
+b. Named
+
+builder.Service.AddHttpClient("weatherapi", client => 
+{
+    client.BaseAddress = new Uri("");
+});
+
+-- OpenWeatherClient.cs --
+var client = _httpClientFactory.CreateClient("weatherapi");

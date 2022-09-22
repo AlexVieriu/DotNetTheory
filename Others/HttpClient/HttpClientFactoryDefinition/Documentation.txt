@@ -1,0 +1,119 @@
+﻿-------------- Microsoft Documentation --------------
+
+
+1. Issues with the original HttpClient class available in .NET
+
+-> when the HttpClient object gets disposed and the underlying socket is not immediately released, which can 
+lead to a socket exhaustion problem
+-> HttpClient is intended to be instantiated once and reused throughout the life of an application
+-> create the HttpClient object as singleton or static to resolve the sockets problem
+https://www.aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/ 
+
+Network Socket: a software that serves as an endpoint for sending and receving data across the network
+https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/sockets-overview
+
+
+Problems:
+-> instantiating an HttpClient class for every request will exhaust the number of sockets available under heavy loads
+-> instance of HttpClient in long-running processes fails to handle DNS changes
+-> the issue with HttpClient per se is with the default constructor for HttpClient, because it creates a new 
+concrete instance of HttpMessageHandler, which is the one that has sockets exhaustion and DNS changes 
+issues mentioned above
+
+HttpClientFactory
+-> intorduced in .Net Core 2.1
+-> configure and create HttpClient instance in an app through Dependency Injection(DI)
+-> provides extensions for Polly-based middleware to take advantage of delegating handlers in HttpClient??
+
+
+2. Benefits of using IHttpClientFactory
+
+-> implements IHttpMessageHandlerFactory
+
+Benefits:
+-> provide a central location for naming and configuring logical HttpClient objects
+-> for ex, you may configure a client that's preconfigured to access a specific microservice 
+-> you can register HTTP clients into the factory and you can use a Polly handler to use Polly policies for 
+Retry, CircuitBreakers, and so on
+-> Manage the lifetime of HttpMessageHandler to avoid the mentioned problems/issues that can occur when 
+managing HttpClient lifetimes yourself
+
+Tip:
+The HttpClient instances injected by DI, can be disposed of safely, because the associated HttpMessageHandler 
+is managed by the factory. 
+As a matter of fact, injected HttpClient instances are Scoped from a DI perspective.
+
+Note:
+he implementation of IHttpClientFactory is tightly tied to the DI implementation in the 
+Microsoft.Extensions.DependencyInjection NuGet package
+
+
+3. Multiple ways to use IHttpClientFactory
+
+-> most structured way to use IHttpClientFactory, which is to use Typed Clients(Service Agent pattern)
+Typed Client: it's just an HttpClient that's pre-configured for some specific use
+
+-> ClientService (used by a controller or client code) uses an HttpClient created by the registered 
+IHttpClientFactory
+-> this factory assigns an HttpMessageHandler from a pool to the HttpClient
+-> add Microsoft.Extensions.Http NuGet package
+-> include AddHttpClient() extention method for IServiceCollection
+-> this extention method registers the internal DefaultHttpClientFactory class to be 
+used as a singleton for the interface IHttpClientFactory
+-> it defines a transient configuration for the HttpMessageHandlerBuilder
+-> this message handler(HttpMessageHandler object) taken from the pool, is used by the HttpClient
+returned from the factory
+
+How AddHttpClient() can be used to register Typed clients that need to use HttpClient:
+
+// Startup.cs
+//Add httpclient services at ConfigureServices(IServiceCollection services)
+services.AddHttpClient<ICatalogService, CatalogService>();
+services.AddHttpClient<IBasketService, BasketService>();
+services.AddHttpClient<IOrderingService, OrderingService>();
+
+-> DefaultClientFactory will create a standard HttpClient for each service as a Transient with 
+DI contrainer
+
+More ex:
+-> add instance-specific configuration in the registration
+	-> configure the base address and add some resiliency policies
+-> add Microsoft.Extensions.Http.Polly Nuget Package
+
+services.AddHttpClient<ICatalogService, CatalogService>(client =>
+{
+    client.BaseAddress = new Uri(Configuration["BaseUrl"]);
+})
+.AddPolicyHandler(GetRetryPolicy())
+.AddPolicyHandler(GetCircuitBreakerPolicy());
+
+
+4. HttpClient lifetimes
+-> each time you get a HttpClient object from IHttpClientFactory, a new instance is returned
+-> each HttpClient uses and HttpMessageHandler that's pooled and reused bt the IHttpClientFactory
+to reduce resource consumption, as long as the HttpMessageHandler's lifetime hasn't expired
+
+-> pooling of handlers is desirable as each handler manages its own underlying HTTP connections
+-> creating more handlers then necessary can result in delays
+-> some handlers also keep connections open idefinitely, which can prevent the handler from reacting to DNS
+changes
+
+-> HttpMessageHandler object in the pool have a lifetime that's the length of the time that an HttpMessageHandler 
+instance in the pool can be reused(default 2 min)
+-> override the time:
+
+services.AddHttpClient<ICatalogService, CatalogService>()
+    .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+
+
+5. Implement your Typed Client classes that use the injected and configured HttpClient
+
+Typed Client: 
+-> is a class that accepts an HttpClient object and uses it to call some remote HTTP service
+-> is activated by DI, that means it can accept any registered service in its contrusctor, in addition to HttpClient
+-> is a transient object, that means a new instance is created each time one is needed
+-> receives a new HttpClient instance each time it's contructed
+-> !!! HttpMessageHandler objects in the pool are the objects that are reused by multiple HttpClient instances 
+
+
+6. User yout Typed Client classes

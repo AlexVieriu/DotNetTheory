@@ -1,0 +1,75 @@
+﻿https://www.thecodebuzz.com/httpclienthandler-client-certificate-basic-auth-httpclientfactory/
+
+In general, HttpClientHandler can be used to configure a specific configuration like custom policy, 
+headers, or security mechanism, compression, certificates, etc.
+
+1. Configure HttpClientHandler for Authentication Example: Bearer or Basic
+2. Configure HttpClientHandler for Compression/Decompression
+3. Configure HttpClientHandler for Certificates validation
+
+
+a. HttpMessageHandler with Network credentials or Basic Authentication
+
+services.AddHttpClient("PayBillClient", c =>
+    {
+        c.BaseAddress = new Uri(Configuration.GetValue<string>("PayBillURL"));
+        // PayBill API ContentType
+        c.DefaultRequestHeaders.Add("Accept", "application/xml");
+ 
+    }).ConfigurePrimaryHttpMessageHandler(() =>
+    {
+        return new HttpClientHandler()
+        {
+            UseDefaultCredentials = true,
+            Credentials = new NetworkCredential(Configuration.GetValue<string>("UserName"), 
+            Configuration.GetValue<string>("Password")),
+        };
+    });
+
+b. HttpClientHandler specifying compression configuration
+
+services.AddHttpClient("AccountClient", c => //Named Http Client
+    {
+        c.BaseAddress = new Uri(Configuration.GetValue<string>("AccountURL"));
+        // Account API ContentType
+        c.DefaultRequestHeaders.Add("Accept", "application/json");
+ 
+    }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+    {
+        AllowAutoRedirect = false,
+        AutomaticDecompression = DecompressionMethods.Deflate | 
+        DecompressionMethods.GZip
+    }); 
+
+c. HttpClientHandler specifying ClientCertificate configuration
+
+services.AddHttpClient("AccountClient", c => //Named Http Client
+    {
+        c.BaseAddress = new Uri(Configuration.GetValue<string>("AccountURL"));
+        // Account API ContentType
+        c.DefaultRequestHeaders.Add("Accept", "application/json");
+ 
+    }).
+    ConfigurePrimaryHttpMessageHandler(() =>
+    {
+        var handler = new HttpClientHandler();
+        handler.ClientCertificates.Add(new X509Certificate());
+        return handler;
+    });
+
+
+Multiple certification:
+
+services.AddHttpClient("AccountClient", c => //Named Http Client
+    {
+        c.BaseAddress = new Uri(Configuration.GetValue<string>("AccountURL"));
+        // Account API ContentType
+        c.DefaultRequestHeaders.Add("Accept", "application/json");
+ 
+    }).
+    ConfigurePrimaryHttpMessageHandler(() =>
+    {
+        var handler = new HttpClientHandler();
+        var clientCertificates = new X509Certificate2Collection {/*specify your certicates her*/};
+        handler.ClientCertificates.AddRange(clientCertificates);
+    });

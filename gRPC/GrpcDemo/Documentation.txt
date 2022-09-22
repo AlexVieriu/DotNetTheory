@@ -1,0 +1,49 @@
+﻿https://www.youtube.com/watch?v=CXH_jEa8dUw&ab_channel=dotNET
+
+-> send binary protobuf messages (not text base JSON like HTTP)
+-> it is a contract first aproach
+
+
+GRPC: http2 + protobuf(by Google)
+C#: .proto file + gRPC tooling
+
+
+Pros:
+-> enables multiplexing, advanced streaming (multiple request by a single connection)
+-> high-performance. Protobuf is small and fast
+-> code generation(it is define the shape of your service)
+    
+Cons:
+-> HTTP/2 isn't supported everywhere
+-> Protobuf isn't human readable(u can't debug and see, u need tooling)
+-> Contract & tooling is required( in .net u only refereance a nugetPackage)
+
+-> Create a gRPC project
+-> create a console project that acts as a Client for gRPC
+    -> add Service Reference:
+        -> right click -> Add -> Service Reference
+           Path: DotNetTheory\GrpcDemo\Protos  greet.proto
+           Select the type of class to be generated : Client
+        -> both the client and the server need to know about the contract
+
+-> open terminal
+CTRL+ALT+click
+
+C:\Users\alexandru.vieriu\source\repos\AlexVieriu\DotNetTheory\GrpcDemo     (SERVER)
+C:\Users\alexandru.vieriu\source\repos\AlexVieriu\DotNetTheory\GrpcClient   (CLIENT)
+
+
+(17:09)
+Transient fault handling
+-> automatically retry failed gRPC calls
+-> configure statuses to retry and exponential backoff
+
+(18:22)
+Client-side load balancing
+-> gRPC client supports client-side load balancing
+    -> discover endpoints(DNS, static, custom) 
+    -> load balance(pick first, round robin, custom)
+-> allows a client to load balance rpc calls across multiple server without requiring a proxy
+-> poxy is useful, but there is a cost with it:
+    -> add additional network hops -> add cpu usage, memory usage, lantency overhead to your app
+

@@ -1,0 +1,4 @@
+﻿https://www.youtube.com/watch?v=jUZ3VKFyB-A&ab_channel=NickChapsas
+
+-> add BenchmarkDotNet package 
+-> run the program in realease mode (3:00)
