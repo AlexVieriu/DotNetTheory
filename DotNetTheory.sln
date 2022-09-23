@@ -47,11 +47,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastListIteration", "NickCh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpClient", "HttpClient", "{1734F039-A0CC-4C6E-BF91-5D584D439E23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplementRetriesInDotNet", "DotNet7\NickChapsas\ImplementRetriesInDotNet\ImplementRetriesInDotNet.csproj", "{4F3E4DDF-20F2-4A03-AE38-F2FFF11974FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImplementRetriesInDotNet", "DotNet7\NickChapsas\ImplementRetriesInDotNet\ImplementRetriesInDotNet.csproj", "{4F3E4DDF-20F2-4A03-AE38-F2FFF11974FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NickChapsas_HttpClientFactory", "Others\HttpClient\HttpClientFactory\NickChapsas_HttpClientFactory.csproj", "{B626D9D6-1035-4607-9C39-2A5CE429F1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NickChapsas_HttpClientFactory", "Others\HttpClient\HttpClientFactory\NickChapsas_HttpClientFactory.csproj", "{B626D9D6-1035-4607-9C39-2A5CE429F1C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientFactoryDefinition", "Others\HttpClient\HttpClientFactoryDefinition\HttpClientFactoryDefinition.csproj", "{71E67DE3-733C-44A2-BB1A-191A10941C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawCoding_HttpClient.API", "Others\HttpClient\RawCoding_HttpClient.API\RawCoding_HttpClient.API.csproj", "{103DB9D8-B9A1-44C9-A749-48CC903B4472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawCoding_HttpClient.Consumer", "Others\HttpClient\RawCoding_HttpClient.Consumer\RawCoding_HttpClient.Consumer.csproj", "{9672D004-5A2F-4CD7-9910-AD8D84C2758E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +135,14 @@ Global
 		{71E67DE3-733C-44A2-BB1A-191A10941C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71E67DE3-733C-44A2-BB1A-191A10941C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71E67DE3-733C-44A2-BB1A-191A10941C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103DB9D8-B9A1-44C9-A749-48CC903B4472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103DB9D8-B9A1-44C9-A749-48CC903B4472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103DB9D8-B9A1-44C9-A749-48CC903B4472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103DB9D8-B9A1-44C9-A749-48CC903B4472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9672D004-5A2F-4CD7-9910-AD8D84C2758E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9672D004-5A2F-4CD7-9910-AD8D84C2758E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9672D004-5A2F-4CD7-9910-AD8D84C2758E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9672D004-5A2F-4CD7-9910-AD8D84C2758E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +168,8 @@ Global
 		{4F3E4DDF-20F2-4A03-AE38-F2FFF11974FF} = {E9D1136B-45F8-4389-9823-B3CB29CCA9E3}
 		{B626D9D6-1035-4607-9C39-2A5CE429F1C3} = {1734F039-A0CC-4C6E-BF91-5D584D439E23}
 		{71E67DE3-733C-44A2-BB1A-191A10941C79} = {1734F039-A0CC-4C6E-BF91-5D584D439E23}
+		{103DB9D8-B9A1-44C9-A749-48CC903B4472} = {1734F039-A0CC-4C6E-BF91-5D584D439E23}
+		{9672D004-5A2F-4CD7-9910-AD8D84C2758E} = {1734F039-A0CC-4C6E-BF91-5D584D439E23}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}

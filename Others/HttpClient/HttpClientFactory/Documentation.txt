@@ -1,60 +1,122 @@
 ﻿https://www.youtube.com/watch?v=Z6Y2adsMnAA&ab_channel=NickChapsas
--> explaning why you should not use 
 -> use polly library if you call multiple APIs
     -> polly can give resiliance :  https://www.youtube.com/watch?v=DSMdUvL8N30&t=11s&ab_channel=LesJackson
                                     https://www.youtube.com/watch?v=9pgvX_Dk0n8&ab_channel=NickChapsas
 
 HttpClient: 
--> when creating a HttpClient it automatically creates HttpClientHandler at ctor lvl
--> HttpClient : HttpMessageInvoker
-    -> HttpMessageInvoker : IDisposable
-
--> if the traffic increase, socket exhaustion will come
 -> don't use "using" statement when creating HttpClient object
--> solution is to declair it Singleton
--> the problem is that we can't track the DNS changes 
+-> if the traffic increase, socket exhaustion will come
+
+-> solution: declair HttpClient of type Singleton or static 
+    -> AddSingleton<IWeatherClient, OpenWeatherClient>() 
+        -> because is declared singleton, when we create the OpenWeatherClient object, 
+            automatically the HttpClient will be singleton
+    -> the problem with this approach is that we can't track the DNS changes 
+
+
+-> when we create a HttpClient, it automatically creates HttpClientHandler at constructor level
+
+-> HttpClient       :   a small object
+-> HttpClientHandler:   UseCookies
+                        CookieContainer
+                        AutomaticDecompression    
+                        UseProxy
+                        PreAuthenticate
+                        MaxRequestContentBufferSize
+                        SslProtocols
+                        _clientCertificateOptions
+
+
+-> builder.Services.AddHttpClient("weatherApi" ....) 
+ -- AddHttpClient -- 
+
+ 
+public static IServiceCollection AddHttpClient(this IServiceCollection services)
+{
+    ThrowHelper.ThrowIfNull(services);
+
+    services.AddLogging();
+    services.AddOptions();
+
+    //
+    // Core abstractions
+    //
+    services.TryAddTransient<HttpMessageHandlerBuilder, DefaultHttpMessageHandlerBuilder>(); // 
+    services.TryAddSingleton<DefaultHttpClientFactory>();
+    services.TryAddSingleton<IHttpClientFactory>(serviceProvider => serviceProvider.GetRequiredService<DefaultHttpClientFactory>());
+    services.TryAddSingleton<IHttpMessageHandlerFactory>(serviceProvider => serviceProvider.GetRequiredService<DefaultHttpClientFactory>());
+
+    //
+    // Typed Clients
+    //
+    services.TryAdd(ServiceDescriptor.Transient(typeof(ITypedHttpClientFactory<>), typeof(DefaultTypedHttpClientFactory<>)));
+    services.TryAdd(ServiceDescriptor.Singleton(typeof(DefaultTypedHttpClientFactory<>.Cache), typeof(DefaultTypedHttpClientFactory<>.Cache)));
+
+    //
+    // Misc infrastructure
+    //
+    services.TryAddEnumerable(ServiceDescriptor.Singleton<IHttpMessageHandlerBuilderFilter, LoggingHttpMessageHandlerBuilderFilter>());
+
+    // This is used to track state and report errors **DURING** service registration. This has to be an instance
+    // because we access it by reaching into the service collection.
+    services.TryAddSingleton(new HttpClientMappingRegistry());
+
+    // Register default client as HttpClient
+    services.TryAddTransient(s =>
+    {
+        return s.GetRequiredService<IHttpClientFactory>().CreateClient(string.Empty);
+    });
+
+    return services;
+}
+
+services.TryAddTransient<HttpMessageHandlerBuilder, DefaultHttpMessageHandlerBuilder>(); 
+services.TryAddSingleton<DefaultHttpClientFactory>();
+
+
+-- DefaultHttpClientFactory.cs -- 
+
+public HttpClient CreateClient(string name)
+{
+    ThrowHelper.ThrowIfNull(name);
+
+    HttpMessageHandler handler = CreateHandler(name);
+    var client = new HttpClient(handler, disposeHandle(false));
+
+    HttpClientFactoryOptions options = _OptionsMonitor.Get(name);
+    for(int i=0; i< opritons.HttpClientActions.count; i++){....}
+
+    return client;
+}
+
+public HttpMessageHandler CreateHandler(string name)
+{
+   ThrowHelper.ThrowIfNull(name);
+   ActiveHandlerTrackingEntry entry = _activeHandlers.GetorAdd(name, _entryFactory);
+
+   StartHandlerEntryTimer(entry);
+
+   return entry.Handler;
+}
 
 
 -> using HttpClientFactory:
     -> HttpClient is transient
-    ->HttpClientHandler is singleton
-    (HttpClient->
-#region Constructors: public HttpClient() : this(new HttpClientHandler()))
-    ->HttpHandlerType = = System.Net.Http.SocketsHttpHandler;
+    -> HttpClientHandler is singleton    
+    
+    HttpClient:    
+        #region Constructors: 
+            public HttpClient() : this(new HttpClientHandler()))
+            -> HttpHandlerType = = System.Net.Http.SocketsHttpHandler;
 
---program.cs--
-AddHttpClient
-
-public static IHttpClientBuilder AddHttpClient<TClient, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TImplementation>(
-    this IServiceCollection services, Action<HttpClient> configureClient)
-    where TClient : class
-    where TImplementation : class, TClient
-{
-    ThrowHelper.ThrowIfNull(services);
-    ThrowHelper.ThrowIfNull(configureClient);
-
-    AddHttpClient(services);
-
-    string name = TypeNameHelper.GetTypeDisplayName(typeof(TClient), fullName: false);
-    var builder = new DefaultHttpClientBuilder(services, name);
-    builder.ConfigureHttpClient(configureClient);
-    builder.AddTypedClientCore<TClient, TImplementation>(validateSingleType: true);
-    return builder;
-}
-
-AddHttpClient(services);
-
-services.TryAddTransient<HttpMessageHandlerBuilder, DefaultHttpMessageHandlerBuilder>();
-
-DefaultHttpMessageHandlerBuilder: it is what is seding the request
 
 (7:40)
-->the heavy object is cashed in memory pulled and reused
--> the client itself it is a thin object
+-> the heavy object is cashed in memory pulled and reused   (Singleton)
+-> the client itself it is a thin object                    (Transient)               
 
 Typed Vs Named Client:
 
-a.Typed
+a. Typed
 
 -- program.cs--
 
@@ -65,6 +127,7 @@ builder.Services.AddHttpClient<IWheatherClient, OpenWeatherClient>(client =>
 
 
 --OpenWeatherClient.cs--
+
 var client = _httpClientFactory.CreateClient();
 
 -> in httpClientFactory is called the Typed client: typeof(OpenWeatherClient)
