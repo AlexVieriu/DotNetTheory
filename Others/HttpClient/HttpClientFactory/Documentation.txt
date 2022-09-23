@@ -10,7 +10,10 @@ HttpClient:
     -> HttpMessageInvoker : IDisposable
 
 -> if the traffic increase, socket exhaustion will come
--> dont use "using" statemanet when creating HttpClient object
+-> don't use "using" statement when creating HttpClient object
+-> solution is to declair it Singleton
+-> the problem is that we can't track the DNS changes 
+
 
 -> using HttpClientFactory:
     -> HttpClient is transient

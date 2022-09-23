@@ -13,16 +13,7 @@ public class OpenWeatherClient : IWeatherClient
     
     public async Task<WeatherResponse?> GetCurrentWeatherForCast(string city)
     {
-        //var response = await _httpClient.GetAsync($"weather?q={city}&appid={OpenWeatherMapApiKey}");
-
-        //var result = await response.Content.ReadAsStringAsync();
-
-
-        //return null;
-
-        var response = await _httpClient.GetFromJsonAsync<WeatherResponse?>(
+        return await _httpClient.GetFromJsonAsync<WeatherResponse?>(
             $"weather?q={city}&appid={OpenWeatherMapApiKey}");
-
-        return response;
     }
 }
