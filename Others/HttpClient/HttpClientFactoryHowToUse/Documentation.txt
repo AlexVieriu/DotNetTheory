@@ -1,0 +1,44 @@
+﻿https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-7.0#consumption-patterns
+
+IHttpClientFactory:
+-> configure and create HttpClient instaces in an app
+
+Benefits:
+-> provides a central location for naming and configuring logical HttpClient instaces
+-> for ex, a client named github could be registered and configured to access Gihub;
+a default client ca be registered for general access
+-> codifies the concept of outgoing middleware via delegating handlers in HttpClient
+-> provides extensions for Polly-based middleware to take advantage of delegating handlers in HttpClient
+-> manages the pooling and lifetime of underlying HttpClientMessageHandler instaces
+-> automatic management avoid commond DNS(Domain Name System) problems that occur 
+when manually managing HttpClient lifetimes
+-> adds a configurable logging experience for all requests sent through clients created by factory
+
+
+1. Consumption patterns
+
+Basic usage			: BaseUsageController.cs
+Named clients		: NamedClientsController.cs
+Typed clients		: TypedClientsController.cs
+Generated clients	: GeneratedClientsController.cs
+
+
+a. Basic usage
+-> it is a good way to refactor an existing app
+-> it has no impact on how HttpClient is used
+
+
+b. Named clients
+Good option when:
+-> the app requires many distinct uses of HttpClient
+-> many HttpClients have different configuration
+
+
+c. Typed clients
+-> provide the same capabilities as named clients without the need to use strings as key
+-> provides ItelliSense and compiler help when consuming clients
+-> provide a single location to configure and interact with a particular HttpClient
+for ex, a single typed client might be used:
+	-> for a single backend endpoint
+	-> to encapsulate all logic dealing with the endpoint
+

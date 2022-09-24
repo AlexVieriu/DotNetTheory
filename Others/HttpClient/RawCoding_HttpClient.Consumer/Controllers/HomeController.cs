@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RawCoding_HttpClient.Consumer.Client;
-
-namespace RawCoding_HttpClient.Consumer.Controllers;
+﻿namespace RawCoding_HttpClient.Consumer.Controllers;
 
 [ApiController]
 [Route("[controller]")]

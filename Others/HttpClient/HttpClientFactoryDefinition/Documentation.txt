@@ -2,7 +2,7 @@
 
 1. Issues with the original HttpClient class available in .NET
 
--> when the HttpClient object gets disposed and the underlying socket is not immediately released, which can 
+-> when the HttpClient object gets disposed, the underlying socket is not immediately released, which can 
 lead to a socket exhaustion problem
 -> HttpClient is intended to be instantiated once and reused throughout the life of an application
 -> create the HttpClient object as singleton or static to resolve the sockets problem
@@ -32,6 +32,8 @@ HttpClientFactory
 Benefits:
 -> provide a central location for naming and configuring logical HttpClient objects
 -> for ex, you may configure a client that's preconfigured to access a specific microservice 
+-> codify the concept of outgoing middleware via delegating handlers in HttpClient and implementing 
+Polly-based middleware to take advantage of Polly's policies for resiliency
 -> you can register HTTP clients into the factory and you can use a Polly handler to use Polly policies for 
 Retry, CircuitBreakers, and so on
 -> Manage the lifetime of HttpMessageHandler to avoid the mentioned problems/issues that can occur when 
@@ -40,16 +42,21 @@ managing HttpClient lifetimes yourself
 Tip:
 The HttpClient instances injected by DI, can be disposed of safely, because the associated HttpMessageHandler 
 is managed by the factory. 
-As a matter of fact, injected HttpClient instances are Scoped from a DI perspective.
+Injected HttpClient instances are Scoped from a DI perspective.
 
 Note:
-he implementation of IHttpClientFactory is tightly tied to the DI implementation in the 
+Implementation of IHttpClientFactory is tightly tied to the DI implementation in the 
 Microsoft.Extensions.DependencyInjection NuGet package
 
 
 3. Multiple ways to use IHttpClientFactory
 
--> most structured way to use IHttpClientFactory, which is to use Typed Clients(Service Agent pattern)
+Basic usage
+Use Named Clients
+Use Typed Clients
+Use Generated Clients
+
+-> most structured way to use IHttpClientFactory is to use Typed Clients(Service Agent pattern)
 Typed Client: it's just an HttpClient that's pre-configured for some specific use
 
 -> ClientService (used by a controller or client code) uses an HttpClient created by the registered 

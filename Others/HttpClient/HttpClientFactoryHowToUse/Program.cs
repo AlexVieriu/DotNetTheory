@@ -1,15 +1,23 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IWeatherClient, OpenWeatherClient>();
-
-builder.Services.AddHttpClient("weatherApi", client =>{
-    client.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/");
+// Basic Usage
+builder.Services.AddHttpClient();
+// Named Client
+builder.Services.AddHttpClient("Github", client =>
+{
+    client.BaseAddress = new Uri("https://api.github.com/");
+    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/vnd.github.v3+json");
+    client.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "HttpRequestSample");
 });
+
+// Typed 
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

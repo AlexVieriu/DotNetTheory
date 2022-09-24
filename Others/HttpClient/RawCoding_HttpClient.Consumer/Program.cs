@@ -1,5 +1,3 @@
-using RawCoding_HttpClient.Consumer.Client;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,8 +6,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddTransient<HttpContextMiddleware>();
-builder.Services.AddHttpContextAccessor();
 
+// Default Http
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("simple", client =>
 {
