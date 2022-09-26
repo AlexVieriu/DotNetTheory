@@ -15,9 +15,31 @@ builder.Services.AddHttpClient("Github", client =>
     client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/vnd.github.v3+json");
     client.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "HttpRequestSample");
 });
-
 // Typed 
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient<GitHubService>();
+// General 
+builder.Services.AddRefitClient<IGitHubClient>()
+    .ConfigureHttpClient(httpClient =>
+    {
+        httpClient.BaseAddress = new Uri("https://api.github.com/");
+        httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/vnd.github.v3+json");
+        httpClient.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "HttpRequestsSample");
+    });
+
+// Outgoing request middleware
+builder.Services.AddTransient<ValidateHeaderHandler>();
+
+builder.Services.AddHttpClient("HttpMessageHandler")
+    .AddHttpMessageHandler<ValidateHeaderHandler>();
+
+// Multiple Handlers
+builder.Services.AddHttpClient<SampleHandler1>();
+builder.Services.AddHttpClient<SampleHandler2>();
+
+builder.Services.AddHttpClient("MultipleHttpMessageHandlers")
+                .AddHttpMessageHandler<SampleHandler1>()
+                .AddHttpMessageHandler<SampleHandler2>();
+
 
 var app = builder.Build();
 

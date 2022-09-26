@@ -42,3 +42,74 @@ for ex, a single typed client might be used:
 	-> for a single backend endpoint
 	-> to encapsulate all logic dealing with the endpoint
 
+
+d. Generated clients
+<PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+
+-> covers REST APIs into live interfaces
+-> call AddRefitClient to generate a dynamic implementation of an interface, 
+which uses HttpClient to make external HTTP calls
+-> HttpClientFactory can be used with Refit
+
+-> call AddRefitClient to generate the dynamic implementation and then call 
+ConfigureHttpClient to configure the underlying HttpClient
+
+
+2. Make POST, PUT, and DELETE requests
+
+
+3. Outgoing request middleware
+
+-> has the concept of delegating handlers that can be linked together for outgoing HTTP requests:
+    -> simplifies defining the handlers to apply for each named client
+    -> supports refistration and chaining of multiple handlers to build an outgoing request middleware pipeline
+    -> each of these handlers is able to perform work before and after the outgoing request:
+        -> is similar to the inbound middleware pipeline in ASP.NET Core
+        -> provides a mechanism to manage cross-cutting concerns around HTTP requests, such as:
+            -> caching
+            -> error handling
+            -> serialization
+            -> logging
+
+To create a delegating handler:
+-> derive from DelegatingHandler
+-> override SendAsync
+
+public class ValidateHeaderHandler : DelegatingHandler
+{
+    protected override async Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        if (!request.Headers.Contains("X-API-KEY"))
+        {
+            return new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent(
+                    "The API key header X-API-KEY is required.")
+            };
+        }
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+
+-> mode then one handler can be added to the configuration for an HttpClient with
+
+builder.Services.AddTransient<ValidateHeaderHandler>();
+
+builder.Services.AddHttpClient("HttpMessageHandler")
+    .AddHttpMessageHandler<ValidateHeaderHandler>();
+
+
+Multiple Handlers:
+-> each handlers wraps the next handler until the final HttpClientHandler executes the request
+
+builder.Services.AddTransient<SampleHandler1>();
+builder.Services.AddTransient<SampleHandler2>();
+
+builder.Services.AddHttpClient("MultipleHttpMessageHandlers")
+    .AddHttpMessageHandler<SampleHandler1>()
+    .AddHttpMessageHandler<SampleHandler2>();
+
+
+4. Use DI in outgoing request middleware

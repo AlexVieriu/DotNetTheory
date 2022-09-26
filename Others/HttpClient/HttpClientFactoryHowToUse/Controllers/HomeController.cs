@@ -5,21 +5,20 @@
 public class HomeController : ControllerBase
 {
     private readonly IHttpClientFactory _clientFactory;
-    private readonly HttpClient _httpClient;
+    private readonly GitHubService _gitHubService;
+    private readonly IGitHubClient _gitHubClient;
 
-    public HomeController(IHttpClientFactory clientFactory, HttpClient httpClient)
+    public HomeController(IHttpClientFactory clientFactory,
+                          GitHubService gitHubService,
+                          IGitHubClient gitHubClient)
     {
         // Base Usage and NamedClients
         _clientFactory = clientFactory;
-
-        // TypedClients
-        _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri("https://api.github.com/");
-        _httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/vnd.github.v3+json");
-        _httpClient.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "HttpRequestsSample");
+        _gitHubService = gitHubService;
+        _gitHubClient = gitHubClient;
     }
 
-    [HttpGet]
+    [HttpGet("BasicUsage")]
     public async Task<IActionResult> BasicUsage()
     {
         var request = new HttpRequestMessage(HttpMethod.Get,
@@ -49,7 +48,7 @@ public class HomeController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet]
+    [HttpGet("NamedClients")]
     public async Task<IActionResult> NamedClients()
     {
         var request = new HttpRequestMessage(HttpMethod.Get, "repos/dotnet/AspNetCore.Docs/branches");
@@ -67,12 +66,26 @@ public class HomeController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet]
+    [HttpGet("TypedClients")]
     public async Task<IActionResult> TypedClients()
     {
-        var response = _httpClient.GetFromJsonAsync<IEnumerable<GitHubBranch>>(
-            "repos/dotnet/AspNetCore.Docs/branches");
+        var response = await _gitHubService.GetBranches();
 
-        return Ok(response);    
+        return Ok(response);
+    }
+
+    [HttpGet("GeneralClients")]
+    public async Task<IActionResult> GeneralClients()
+    {
+        try
+        {
+            var result = await _gitHubClient.GetBranchesAsync();
+
+            return Ok(result);
+        }
+        catch (ApiException)
+        {
+            throw;
+        }
     }
 }
