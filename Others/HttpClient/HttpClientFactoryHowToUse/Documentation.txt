@@ -113,3 +113,8 @@ builder.Services.AddHttpClient("MultipleHttpMessageHandlers")
 
 
 4. Use DI in outgoing request middleware
+
+-> when HttpClientFactory creates a new delegating handler, it uses DI to fulfill the 
+handler's constructor parameters
+-> IHttpClientFactory creates a separate DI scope for each handler, which can lead to 
+suprising behavior when a handler consumes a scoped service

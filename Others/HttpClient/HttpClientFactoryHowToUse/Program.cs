@@ -40,6 +40,10 @@ builder.Services.AddHttpClient("MultipleHttpMessageHandlers")
                 .AddHttpMessageHandler<SampleHandler1>()
                 .AddHttpMessageHandler<SampleHandler2>();
 
+// Use DI in outgoing request middleware
+builder.Services.AddScoped<IOperationScoped, OperationScoped>();
+
+
 
 var app = builder.Build();
 
