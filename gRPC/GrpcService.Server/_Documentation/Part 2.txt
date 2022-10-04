@@ -1,0 +1,86 @@
+﻿Part2: erver Streaming
+https://www.youtube.com/watch?v=F2T6xNRoa1E&ab_channel=NickChapsas
+
+
+Part 1:
+-> unirecall : a client ask a server to do something and give somthing back
+
+--------------------
+Streaming features:
+-> keep a single connection open where you can send 
+messagess back and fort from client to server 
+
+It is good for apps that have real time communication:
+-> weather data
+-> location data
+-> real-time analitics 
+-> customore behavior 
+-> customer analytics
+-> stock market data
+
+-- weather.proto --
+import "google/protobuf/timestamp.proto"
+
+message WeatherResponse{
+	double temperature = 1;
+	double feels_like = 2;
+	google.protobuf.Timestamp timestamp= 3;
+}
+
+
+-> we need to rebuild the project every time we change the gRPC contract(weather.proto)
+so that we generate the class with new changes in the contract
+
+-- WheatherService.cs --
+
+-> add the new property: Timestamp
+
+return new WeatherResponse
+{
+    Temperature = temperatures!.Main.Temp,
+    FeelsLike = temperatures.Main.FeelsLike,
+    Timestamp = Timestamp.FromDateTime(DateTime.UtcNow)
+};
+
+-> extract the response and return in a new method
+GetCurrentTemperaturesAsync(GetCurrentWeatherForCityRequest request, HttpClient httpClient)
+
+-> override GetCurrentWeatherStream (the methods declared on the gRPC contract)
+
+public override async Task GetCurrentWeatherStream(GetCurrentWeatherForCityRequest request,
+                                                    IServerStreamWriter<WeatherResponse> responseStream,
+                                                    ServerCallContext context)
+{
+    if(context.CancellationToken.IsCancellationRequested)
+    {
+        _logger.LogInformation("Request was cancelled");
+        break;
+    }
+
+    var httpClient = _clientFactory.CreateClient();
+
+    for (int i = 0; i < 30; i++)
+    {
+        var temperatures = await GetCurrentTemperaturesAsync(request, httpClient);
+        await responseStream.WriteAsync(new WeatherResponse
+        {
+            Temperature = temperatures!.Main.Temp,  
+            FeelsLike = temperatures.Main.FeelsLike,    
+            Timestamp = Timestamp.FromDateTime(DateTime.UtcNow)
+        });
+        await Task.Delay(1000);
+    }
+}
+
+
+Using Postman(how to use postman for gRPC is detailed in Part1)
+
+
+Aware:
+-> if we push this into production we need to be careful about:
+    -> traffic management, reverse proxy will potentially interfere with this type of connection and may drop it
+    -> if there's long periods of inactivity you should be sending keeper live pings from the client to the server
+    and the hosting and the traffic manager is aware that is actually still alive and don't drop this connection, 
+    we need it
+-> the responseStream.WriteAsync(...) method isn't thread safe; any multi-threading on that stream could cause issues
+    -> use channels to marshal the messages and have a consumer producer sor of situation

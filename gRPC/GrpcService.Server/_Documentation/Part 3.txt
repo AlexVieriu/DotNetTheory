@@ -1,0 +1,96 @@
+﻿Part3: Streaming
+https://www.youtube.com/watch?v=DNxdvRQ4qRQ&ab_channel=NickChapsas
+
+-- weather.proto --
+service WeatherService {
+	...
+	rpc GetMultiCurrentWeatherStream (stream GetCurrentWeatherForCityRequest) returns (MultiweatherResponse);
+}
+
+message WeatherResponse{
+	...
+	string city = 4;
+	Units units= 5;
+}
+
+enum Units{
+	Standard = 0;
+	Metric = 1;
+	Imperial = 2;
+}
+
+-> rebuild project so the code generation can modify the class
+
+Porpuse of the Video:
+-> add multiple client calls, commited and see the response after
+
+Ex: 
+Requests:
+
+{
+    "city": "London",
+    "units": 1
+}
+
+{
+    "city": "Paris",
+    "units": 1
+}
+
+{
+    "city": "Malaga",
+    "units": 1
+}
+
+
+Response:
+{
+    "weather": [
+        {
+            "temperature": 15.85,
+            "feels_like": 15.58,
+            "timestamp": {
+                "seconds": "1664873856",
+                "nanos": 758243400
+            },
+            "city": "London",
+            "units": "Metric"
+        },
+        {
+            "temperature": 10.74,
+            "feels_like": 10.35,
+            "timestamp": {
+                "seconds": "1664873861",
+                "nanos": 618489000
+            },
+            "city": "Paris",
+            "units": "Metric"
+        },
+        {
+            "temperature": 21.2,
+            "feels_like": 21.28,
+            "timestamp": {
+                "seconds": "1664873866",
+                "nanos": 147761800
+            },
+            "city": "Malaga",
+            "units": "Metric"
+        }
+    ]
+}
+
+
+Add feature for analitics:
+
+-- weather.proto --
+service WeatherService {
+    ...
+	rpc PrintStream (stream PrintRequest) returns (google.protobuf.Empty);
+}
+
+message PrintRequest{
+	string message = 1;
+}
+
+-- WeatherService.cs --
+Task<Empty> PrintStream(IAsyncStreamReader<PrintRequest> requestStream, ServerCallContext context)
