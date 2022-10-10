@@ -1,0 +1,4 @@
+﻿https://www.youtube.com/watch?v=YzOBrVlthMk&ab_channel=NickChapsas
+
+CQRS -> Command, Query, Responsibility, Segregation:
+-> our commands and queries has seperate responsibilities and clear domain bounderies
