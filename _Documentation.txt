@@ -1,0 +1,12 @@
+1. DotNet Conf 2022 Keynote
+
+-- REST APIs with .NET 7: Minimal APIs(11:41) --
+
+a. MapGroup API 
+-> create a MinimalApi project
+-> add ScaffoldItem: right click on project -> Add -> New Scaffold Item ->
+					 API with read/write endpoints, using EF
+
+-> creates groups of routes that share a common prefix
+https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio
+

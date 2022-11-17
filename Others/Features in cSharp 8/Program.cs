@@ -15,9 +15,8 @@ var firstTwo = twitchStreamers[..2];
 var fromIndex2 = twitchStreamers[2..];
 var lastTwotest = twitchStreamers[^2..];
 
-Console.WriteLine(third);
+Console.WriteLine(JsonSerializer.Serialize(third));
 Console.WriteLine(JsonSerializer.Serialize(slice));
-Console.WriteLine(JsonSerializer.Serialize(firstTwo));
 Console.WriteLine(JsonSerializer.Serialize(firstTwo));
 Console.WriteLine(JsonSerializer.Serialize(fromIndex2));
 Console.WriteLine(JsonSerializer.Serialize(lastTwotest));

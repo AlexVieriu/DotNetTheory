@@ -62,7 +62,7 @@ ConfigureHttpClient to configure the underlying HttpClient
 
 -> has the concept of delegating handlers that can be linked together for outgoing HTTP requests:
     -> simplifies defining the handlers to apply for each named client
-    -> supports refistration and chaining of multiple handlers to build an outgoing request middleware pipeline
+    -> supports registration and chaining of multiple handlers to build an outgoing request middleware pipeline
     -> each of these handlers is able to perform work before and after the outgoing request:
         -> is similar to the inbound middleware pipeline in ASP.NET Core
         -> provides a mechanism to manage cross-cutting concerns around HTTP requests, such as:
@@ -75,26 +75,14 @@ To create a delegating handler:
 -> derive from DelegatingHandler
 -> override SendAsync
 
-public class ValidateHeaderHandler : DelegatingHandler
-{
-    protected override async Task<HttpResponseMessage> SendAsync(
-        HttpRequestMessage request, CancellationToken cancellationToken)
-    {
-        if (!request.Headers.Contains("X-API-KEY"))
-        {
-            return new HttpResponseMessage(HttpStatusCode.BadRequest)
-            {
-                Content = new StringContent(
-                    "The API key header X-API-KEY is required.")
-            };
-        }
+-- ValidateHeaderHandler.cs --
+-> checks if X-API-KEY header is in the request
+-> if not, returns BadRequest
 
-        return await base.SendAsync(request, cancellationToken);
-    }
-}
 
--> mode then one handler can be added to the configuration for an HttpClient with
+-- Program.cs --
 
+Single handler:
 builder.Services.AddTransient<ValidateHeaderHandler>();
 
 builder.Services.AddHttpClient("HttpMessageHandler")
@@ -113,3 +101,4 @@ builder.Services.AddHttpClient("MultipleHttpMessageHandlers")
 
 
 4. Use DI in outgoing request middleware
+

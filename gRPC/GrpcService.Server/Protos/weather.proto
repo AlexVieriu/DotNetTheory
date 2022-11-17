@@ -5,5 +5,5 @@ option csharp_namespace = "";
 package weather;
 
 service WeatherService {
-	rpc GetCurrentWeather (GetCurrentWeatherForCityRequest) returns (WeatherResponse)
+	rpc GetCurrentWeather (GetCurrentWeatherForCityRequest) returns (WeatherResponse);
 };
