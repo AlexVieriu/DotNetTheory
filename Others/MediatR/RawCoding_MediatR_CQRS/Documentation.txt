@@ -1,0 +1,7 @@
+﻿Why use CQRS and MediatR:
+-> services are calling each other
+-> if you have a large project, u want cleanliness in large code bases
+-> seperate writes and reads
+-> code portability
+
+Don't use CQRS for simple app

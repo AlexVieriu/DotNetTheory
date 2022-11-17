@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "TimCorey_DI_with_Autofac": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:50316;http://localhost:50326"
+    }
+  }
+}

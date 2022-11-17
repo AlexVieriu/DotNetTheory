@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
 	<Protobuf Include="Protos\weather.proto" GrpcServices="Server" />
+	<Protobuf Include="Protos\chat.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Grpc.AspNetCore" Version="2.50.0-pre1" />
+=======
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
+>>>>>>> eef3c0fd3f2d1ceab86da74e5c784519ea702763
   </ItemGroup>
 
 </Project>
