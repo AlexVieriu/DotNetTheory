@@ -4,6 +4,8 @@
 
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio
 
+a. MapGroup
+
 Create a Empty Project
 
 ALT + ~ (open Package Manager Console)
@@ -24,4 +26,16 @@ a. MapGroup API
 
 -> creates groups of routes that share a common prefix
 
+b. RateLimiter
 
+-> allow to configure rules that limites the number of requests 
+that can be send to the app over a fixed time window
+
+EX:
+builder.Services.AddRateLimiter(options => options.AddFixedWindowLimiter("feeds",options
+{
+    options.PermitLimit = 5;
+    options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+    options.QueueLimit = 0;
+
+}));

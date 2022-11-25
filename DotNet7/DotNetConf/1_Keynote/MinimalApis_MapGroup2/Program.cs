@@ -1,8 +1,15 @@
+using Microsoft.AspNetCore.RateLimiting;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//builder.Services.AddRateLimiter(options => options.AddFixedWindowLimiter("feeds", opt
+//{
+//    opt.
+//}));
 
 var app = builder.Build();
 
