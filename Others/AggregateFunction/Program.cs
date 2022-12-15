@@ -9,25 +9,24 @@ string longestName = fruits.Aggregate("banana",
                                             fruit => fruit.ToUpper()
                                      );
 
-Console.WriteLine("The fruit with the longest name is {0}", longestName);
+Console.WriteLine("\"apple\", \"mango\", \"orange\", \"passionfruit\", \"grape\"" +
+                  " longest name is -> {0}", longestName);
 Console.WriteLine("- - - - - - - - - - - - - - - - - -");
-
 
 // Example 2 
 var nums = new[] { 1, 2, 3, 4 };
 var sum = nums.Aggregate((a, b) => a + b);
-Console.WriteLine(sum); // output: 10 (1+2+3+4)
-
+Console.WriteLine("1, 2, 3, 4: (a+b) -> {0}", sum); // output: 10 (1+2+3+4)
+Console.WriteLine("- - - - - - - - - - - - - - - - - -");
 
 // Example 3
 var chars = new[] { "a", "b", "c", "d" };
 var csv = chars.Aggregate((a, b) => a + ',' + b);
-Console.WriteLine(csv); // Output a,b,c,d
+Console.WriteLine("a b c d: (a+,+b) -> {0}", csv); // Output a,b,c,d
 Console.WriteLine(" - - - - - - - - - - - - - - - - - -");
 
-
 // Example 4
-
 var multipliers = new[] { 10, 20, 30, 40 };
 var multiplied = multipliers.Aggregate(5, (a, b) => a * b);
-Console.WriteLine(multiplied); //Output 1200000 ((((5*10)*20)*30)*40)
+Console.WriteLine("10, 20, 30, 40: Aggregate(5, (a, b) => a * b) -> {0}", multiplied); //Output 1200000 ((((5*10)*20)*30)*40)
+Console.WriteLine(" - - - - - - - - - - - - - - - - - -");
