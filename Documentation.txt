@@ -69,24 +69,13 @@ builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter("policyName", optio
 https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/
 
 
-1.4. Dev Tunnels(25:20)
+1.4. AddingDevTunnel (25:20)
 
-https://learn.microsoft.com/en-us/connectors/custom-connectors/port-tunneling
-https://devblogs.microsoft.com/visualstudio/public-preview-of-dev-tunnels-in-visual-studio-for-asp-net-core-projects/
-https://www.twilio.com/blog/use-visual-studio-port-tunneling-with-twilio-webhooks
-https://github.com/microsoft/dev-tunnels
+https://www.youtube.com/watch?v=wKm34br-Zpg&ab_channel=SayedHashimi
+ex: 
+https://93rww652-7131.euw.devtunnels.ms/
 
--- MinimalApis_MapGroup2 -> launchSettings.json --
-"profiles": {
-    "http": {
-        "commandName": "Project",
-        "dotnetRunMessages": true,
-        "launchBrowser": true,
-        "launchUrl": "swagger",
-        "applicationUrl": "http://localhost:5085",
-        "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-        },
-        "devTunnelEnabled": true,
-        "devTunnelAccess":  "public"
-    },
+Advantages of a Persistent Url:
+-> when integrating with an external service :  Power Platform
+                                                GitHub webhook
+                                                Twilio
