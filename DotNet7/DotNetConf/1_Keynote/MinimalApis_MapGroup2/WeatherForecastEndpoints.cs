@@ -1,6 +1,6 @@
 ﻿public static class WeatherForecastEndpoints
 {
-	public static void MapWeatherForecastEndpoints (this IEndpointRouteBuilder routes)
+    public static void MapWeatherForecastEndpoints(this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/api/WeatherForecast").WithTags(nameof(WeatherForecast));
 
@@ -12,7 +12,7 @@
         .WithOpenApi()
         .Produces<List<WeatherForecast>>(StatusCodes.Status200OK);
 
-        group.MapGet("/{id}", async  (int id, MinimalApis2Context db) =>
+        group.MapGet("/{id}", async (int id, MinimalApis2Context db) =>
         {
             return await db.WeatherForecast.FindAsync(id)
                 is WeatherForecast model
@@ -24,7 +24,9 @@
         .Produces<WeatherForecast>(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
 
-        group.MapPut("/{id}", async  (int id, WeatherForecast weatherForecast, MinimalApis2Context db) =>
+        group.MapPut("/{id}", async (int id,
+                                     WeatherForecast weatherForecast,
+                                     MinimalApis2Context db) =>
         {
             var foundModel = await db.WeatherForecast.FindAsync(id);
 
@@ -32,7 +34,7 @@
             {
                 return Results.NotFound();
             }
-            
+
             db.Update(weatherForecast);
             await db.SaveChangesAsync();
 
@@ -43,17 +45,18 @@
         .Produces(StatusCodes.Status404NotFound)
         .Produces(StatusCodes.Status204NoContent);
 
-        group.MapPost("/", async (WeatherForecast weatherForecast, MinimalApis2Context db) =>
+        group.MapPost("/", async (WeatherForecast weatherForecast,
+                                  MinimalApis2Context db) =>
         {
             db.WeatherForecast.Add(weatherForecast);
             await db.SaveChangesAsync();
-            return Results.Created($"/api/WeatherForecast/{weatherForecast.Id}",weatherForecast);
+            return Results.Created($"/api/WeatherForecast/{weatherForecast.Id}", weatherForecast);
         })
         .WithName("CreateWeatherForecast")
         .WithOpenApi()
         .Produces<WeatherForecast>(StatusCodes.Status201Created);
 
-        group.MapDelete("/{id}", async  (int id, MinimalApis2Context db) =>
+        group.MapDelete("/{id}", async (int id, MinimalApis2Context db) =>
         {
             if (await db.WeatherForecast.FindAsync(id) is WeatherForecast weatherForecast)
             {

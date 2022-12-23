@@ -18,6 +18,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+      //,"devTunnelEnabled": true
+      //,"devTunnelAccess":  "public"
     },
     "https": {
       "commandName": "Project",

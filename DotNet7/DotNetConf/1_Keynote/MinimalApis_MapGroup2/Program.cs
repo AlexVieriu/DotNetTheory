@@ -1,15 +1,23 @@
-using Microsoft.AspNetCore.RateLimiting;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<MinimalApis2Context>(opt => opt.UseInMemoryDatabase("WeatherForecastList"));
 
-//builder.Services.AddRateLimiter(options => options.AddFixedWindowLimiter("feeds", opt
-//{
-//    opt.
-//}));
+
+#region RateLimiting
+// Rate-Limiting and output caching-related services(16:45)
+builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter("policyName", options =>
+{
+    options.PermitLimit = 5;
+    options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+    options.QueueLimit = 0;
+    options.Window = TimeSpan.FromSeconds(2);
+    options.AutoReplenishment = false;
+}));
+#endregion
+
 
 var app = builder.Build();
 

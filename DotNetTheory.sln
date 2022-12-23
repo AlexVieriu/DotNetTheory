@@ -58,11 +58,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastListIteration", "DotNet7\NickChapsas\FastListIteration\FastListIteration.csproj", "{1279C02A-16DC-4F4C-80A0-F62951F4C104}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetConf", "DotNetConf", "{4E9E8EED-DD52-4AB6-919C-C3C9BC2D5571}"
-	ProjectSection(SolutionItems) = preProject
-		_Documentation.txt = _Documentation.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Keynote", "1_Keynote", "{0FDC1AE7-D611-43DB-B274-8188D3E162EB}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation.txt = Documentation.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design Patterns", "Design Patterns", "{651E1E9C-F3DB-4EC9-9927-A2955A49D8BC}"
 EndProject
@@ -88,7 +88,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NameOf_vs_TypeOf", "NameOf_
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNet8", "DotNet8", "{A59DC99A-FC83-4289-A3B5-6EFFB18991CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StopwatchExample", "DotNet7\NickChapsas\Stopwatch\StopwatchExample.csproj", "{29B7DB67-9508-4B03-9CAE-B5A3EE290516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StopwatchExample", "DotNet7\NickChapsas\Stopwatch\StopwatchExample.csproj", "{29B7DB67-9508-4B03-9CAE-B5A3EE290516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
