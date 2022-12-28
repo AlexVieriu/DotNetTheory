@@ -12,12 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="Grpc.AspNetCore" Version="2.50.0-pre1" />
-=======
-    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
->>>>>>> eef3c0fd3f2d1ceab86da74e5c784519ea702763
+    <PackageReference Include="Grpc.AspNetCore" Version="2.51.0-pre1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
 </Project>

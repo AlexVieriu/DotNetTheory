@@ -9,9 +9,6 @@ package weather;
 
 service WeatherService {
 	rpc GetCurrentWeather (GetCurrentWeatherForCityRequest) returns (WeatherResponse);
-<<<<<<< HEAD
-};
-=======
 	rpc GetCurrentWeatherStream (GetCurrentWeatherForCityRequest) returns (stream WeatherResponse);
 	rpc GetMultiCurrentWeatherStream (stream GetCurrentWeatherForCityRequest) returns (MultiweatherResponse);
 	rpc PrintStream (stream PrintRequest) returns (google.protobuf.Empty);
@@ -43,4 +40,3 @@ enum Units{
 	Metric = 1;
 	Imperial = 2;
 }
->>>>>>> eef3c0fd3f2d1ceab86da74e5c784519ea702763
