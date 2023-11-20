@@ -1,0 +1,157 @@
+- - - 1. Welcome to .NET 8 - - -
+Blazor in .Net 8		(36:40)
+	Endpoint Explorer 	(39:03)
+	FontEnd				(42:51)
+
+.Net Maui	- 52:07
+	.Net Maui extention for VSC 	(53:50)
+	app that use .net MAUI:			(58:32)
+		-> Microsoft 356 admin app
+		-> Microsoft Azure app
+	Sports NEXT Sports x Tech app	(58:47)
+		https://www.golfnow.co.uk/tee-times/search
+
+AI		-> 1:00:10
+Cloud Native	-> 1:05:20
+	-> High-scale/availability services	(1:06:10)
+	-> Containers						(1:06:57)
+	-> Demo AOT							(1:09:30)
+		-> your dependencies need to be AOT compatible so the app can work 
+	-> Vestas Wind Systems				(1:12:40)		
+
+.Net Aspire		(1:15:05)
+	-> a cloud ready stack for building observable, production ready, distributed apps 
+	-> Components		 : redis, RabbitMQ, SQL, PostgreSQL, CosmoDB
+	-> Developer Dashboard: structed logs, metrics, distributed traces, dependecies 
+		-> it's something like Portainer
+		-> first line of Debuging for distribute app
+		-> single command operation
+		-> express application topology in C#
+		-> deploy to the cloud
+	-> Demo		(1:17:15)
+		-> Aspire templates(2)	(1:21:10)
+		-> pull it to the cloud(from powershell)
+			-> azd init
+			-> azd up
+	-> Demo keyNote		(1:24:40)
+	-> it's in preview	(1:25:35 )
+
+Visual Studio 2022 v17.8 GA		(1:26:10)
+	-> modern developmetn for .Net 8 using WSL2
+	-> GitHub Copilot boosts your developer output with AI
+	-> improve collaboration, add reviews to pull requests
+
+Foundation C# Certification		(1:26:29)
+	-> https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/#create-and-run-simple-c-sharp-console-applications
+	-> https://learn.microsoft.com/ro-ro/training/dotnet/?WT.mc_id=friends-0000-jamont
+
+
+- - - 2. Full stack web UI with Blazor in .NET 8 (1:31:37)- - -
+(https://www.youtube.com/watch?v=YwZdtLEtROA&list=PLdo4fOcmZ0oULyHSPBx-tQzePOYlhvrAU&index=3&ab_channel=dotnet)
+
+Full Stack web UI with Blazor 
+	-> static server rendering
+	-> enhanced navigation & from handling 
+	-> streaming rendering 
+	-> enable interactivity per component or page
+	-> auto select the render mode at runtime
+
+I. Steve Sanderson 
+	-> Type of Blazore projects: Server, WebAssembly, Static Server-side Rnedering(SSR)
+	-> Static SSR	
+		-> Good for:
+			-> scale 
+			-> good for sites that are presenting information(read-only sites: blogs, ecommerce, search engines)
+			-> navigation (links)
+			-> forms
+		-> Not Good for:	
+			-> rich interactivity (all events handlers)
+			-> real-time updates
+	-> Demo	
+		-> code for the catalog 
+		-> how do we tell Blazor to do static blazer rendering 
+	-> Features
+		a. Streaming SSR 
+			-> skip waiting for DB/API calls
+				-> fast initial UI render/update
+				-> begin loading static resources in parallel
+				-> ! requires UI design to make sense
+					-> use when data loading is likely to take multiple seconds
+		b. Enhanced navigation )
+			-> get SPA-like responsiveness without needing a SPA
+				-> faster page loads with fewer HTTP requests
+				-> retain most DOM elements
+				-> enable/disable on any DOM subtree
+					-> on by default
+					-> consider disabling to reset JS state or navigation to non-Blazor pages 
+		c. Static SSR Forms 
+			-> accept and validate input on static SSR pages
+				-> all capabilities of <form> or EditForm
+					-> @onsubmit handlers
+					-> anti-forgery protection(CSRF)
+					-> server-side validation
+				-> same APIs as for interative components 
+				-> supports Enhance and works with streaming SSR 
+		d. Interactive components
+			-> Get full Blazor interactivity, arbitrary events, and real-time updates 
+				-> Mark any page/component as Server/WebAssembly/both
+				-> Work with enhanced navigation/forms 
+					-> Retain interactive state while navigating or refreshing static SSR content
+					-> Closes/reopens server circuit automatically
+				-> Requires WebSocket connection or WebAssembly payload
+		e. Auto mode
+			-> Use WebAssembly without the first-download cost
+			-> ... then uses WebAssembly on the next visit 
+			-> Components must support WebAssembly 
+				-> must be in Client project and use API endpoints for data
+			
+II. New Blazor Web App template (34:43)		
+	-> best of Blazor Server & Blazor WebAssembly in one template
+	-> quickly get setup with static server rendering & progressive enhancements
+	-> easily enable Server, WebAssembly, and Auto interactive render modes
+	-> Demo (35:20)
+
+Additional Blazor enhancements in .NET 8
+-> QuickGrid
+-> Sections
+-> Routing
+-> Monitor circuit activity
+-> Improved authentication
+
+Generate static HTML content with components
+-> use components for templating and static HTML rendering
+-> render a component directly to a string or stream
+-> render outside of the context of ASP.NET Core
+-> enable future static site generation support
+-> Demo(42:28)
+-> new Razor Components using EF(CRUD) (45:30)
+-> QuickGrid: https://aspnet.github.io/quickgridsamples/
+
+.Net WebAssembly improvements
+-> Jiterpreter: 
+	-> 20% faster UI rendering
+	-> 2x faster JSON deserialization 
+-> hot reaload improvements 
+-> web-friendly packaging(Webcil)
+-> SIM & exception handling 
+-> CSP compatibility
+
+What if you have and existing Web App? (35:35)
+Blazor App			-> direct update to .net 8
+ASP.NET Core app	-> add blazor pages along the existing .net pages	
+MVC Views/Razor Pg	-> use the <component> tag helper					
+Minimal API/ MVC Controllers -> return a RazorComponentResult	
+JS-based web app	-> use Blazor components as custom elements
+
+
+- - - 3. Building Cloud Native apps with .NET 8 - - -
+.Net Aspire
+-> is a stack for building resilient, observable, and configurable cloud-native applications with .Net
+-> includes a curated set of components enhanced for cloud-native fundamentals including 
+Telemetry, Resilience, Configuration, Health Checks and composition
+-> makes it easy to discover, acquired and configure essential dependecies for cloud-native
+apps on day 1 and day 100
+Demo (8:25) -> 
+	-> create Blazor Web App -> Server 
+		-> to use Aspire, we need the project to be in the same place as the solution
+					
