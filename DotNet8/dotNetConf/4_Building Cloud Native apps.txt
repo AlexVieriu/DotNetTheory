@@ -1,0 +1,74 @@
+﻿- - - 4. Building Cloud Native apps with .NET 8 - - -
+.Net Aspire
+-> is a stack for building resilient, observable, and configurable cloud-native applications with .Net
+-> includes a curated set of components enhanced for cloud-native fundamentals including 
+Telemetry, Resilience, Configuration, Health Checks and composition
+-> makes it easy to discover, acquired and configure essential dependecies for cloud-native
+apps on day 1 and day 100
+Demo (8:25) 
+-> create Blazor Web App -> Server 		
+-> create a MinimalAPI app
+-> adding Aspire to Blazore App(will add 2 more projects)
+	-> Aspire.AppHost
+	-> Aspire.ServiceDefaults
+-> API -> Add-> .NET Aspire Orchestrator Support (18:25) 
+-> start the appHost project (so we can see the Dashboard)
+
+-> Extentions.cs - explaining the extentions in the Aspire.ServiceDefaults (31:40)
+	-> IHostApplicationBuilder		: represent a hosted apps and services builder which helps manage the configuration, logging, lifetime, and more.
+		
+	->.AddServiceDiscovery()		: Extension methods for configuring service discovery
+		
+	->.ConfigureHttpClientDefaults	: Adds a delegate that will be used to configure all System.Net.Http.HttpClient instances							  
+									every single HttpClient that will be created will have, by default,  this stardard resilient package, builed on Polly, V8, etc.
+									the Polly extention got really fast in .NET 8
+									every HttpClient we make, is going to retry, it's goig to handle trasient faults properly    
+		
+	-> .UseServiceDiscovery()		: Help us to discover the named endpoint in the project Aspire.AppHost -> Program.cs
+									builder.AddProject<Projects.WepAPI>("backend")
+									Instead of writing manually all the configuration in the Apire.AppHost -> appsetting.json, 
+									it will discover the configuration of that URL in other projects appsettings.json
+
+	-> .AddOpenTelemetry			: Adds an OpenTelemetry logger named 'OpenTelemetry' to the Microsoft.Extensions.Logging.ILoggerFactory							
+		
+	-> .AddRuntimeInstrumentation	: Enables runtime instrumentation
+		
+	-> MeterProviderBuilder			
+		-> .AddMeter(36:40)			: lets you add Dimensions		
+										we can build really fancy Dashboards so it will show us 
+		
+	Extentions.cs
+	-> OTP(Open Telemetry protocol)(38:35)
+		-> a standard protocol for gRPC or Http that lets apps send traces, metrics, logs to some endpoint					
+	
+	-> builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"] :
+		-> a standard OpenTelemetry environment variable, and it's passed to the application, and the app then wires up the exporters
+		-> going from ilogger, meter, activity to the dashboard(the dashboard in this case is your OTL server)
+		
+	-> Aspire with Dapper(43:30)
+		examples: https://github.com/dotnet/aspire-samples/tree/main/samples
+		
+-> Aspire.AppHost -> Program.cs
+	var cache = builder.AddRedisContrainer("caches2");
+	.WithReference(cache);
+	-> now we have an container
+
+-> (44:50)
+	-> adding a Redis cache and configure the frontend to use Redis to cach the output 
+	-> there's a whole set of things whenever you want to depend on one of these super common
+	open-source client libraries to call some dependency
+			
+	-- BlazorServer -> Program.cs --
+		-> Aspire.StackExchange.Redis.OutputCaching (nugetpackage)
+		-> builder.AddRedisOutputCache("cache2");
+		-> app.UseOutputCache();
+	-> when he runs the proj next, Apire will run an container locally for you, that has Redis on it, 
+	it will setup all the connection strings for u
+	-- Components -> Weather.razor --
+		@attribute [OutputCache(Duration = 5)]
+	-> putting this @attribute on the blazor pg, all of the framework will saved the actual HTML render 
+	for this page into redis 
+	-> so next time you come, instead of executing this cod, it will grab it from redis
+	-> in Aspire u can see the Redis container
+	-> if u fo to trace, it's checks if the thing is there, if not, is going to the API and take it
+			

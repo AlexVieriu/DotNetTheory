@@ -94,7 +94,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Every Feature in Csharp12",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotNet Conf", "dotNet Conf", "{4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}"
 	ProjectSection(SolutionItems) = preProject
-		DotNet8\dotNetConf\Documentation.txt = DotNet8\dotNetConf\Documentation.txt
+		DotNet8\dotNetConf\1_Welcome to dotNet8.txt = DotNet8\dotNetConf\1_Welcome to dotNet8.txt
+		DotNet8\dotNetConf\3_Full stack web UI with Blazor.txt = DotNet8\dotNetConf\3_Full stack web UI with Blazor.txt
+		DotNet8\dotNetConf\4_Building Cloud Native apps.txt = DotNet8\dotNetConf\4_Building Cloud Native apps.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "DotNet8\dotNetConf\Aspire\BlazorServer\BlazorServer.csproj", "{86902F8B-9BA5-4246-A9EF-E4B84CA06043}"

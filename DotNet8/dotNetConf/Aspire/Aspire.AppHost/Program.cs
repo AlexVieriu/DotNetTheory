@@ -1,7 +1,11 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var api = builder.AddProject<Projects.WepAPI>("backend");
+var cache = builder.AddRedisContainer("cache2");
+
+var api = builder.AddProject<Projects.WepAPI>("weather");
+
 builder.AddProject<Projects.BlazorServer>("frontend")
-    .WithReference(api);
+    .WithReference(api)
+    .WithReference(cache);
 
 builder.Build().Run();

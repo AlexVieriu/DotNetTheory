@@ -1,52 +1,4 @@
-- - - 1. Welcome to .NET 8 - - -
-Blazor in .Net 8		(36:40)
-	Endpoint Explorer 	(39:03)
-	FontEnd				(42:51)
-
-.Net Maui	- 52:07
-	.Net Maui extention for VSC 	(53:50)
-	app that use .net MAUI:			(58:32)
-		-> Microsoft 356 admin app
-		-> Microsoft Azure app
-	Sports NEXT Sports x Tech app	(58:47)
-		https://www.golfnow.co.uk/tee-times/search
-
-AI		-> 1:00:10
-Cloud Native	-> 1:05:20
-	-> High-scale/availability services	(1:06:10)
-	-> Containers						(1:06:57)
-	-> Demo AOT							(1:09:30)
-		-> your dependencies need to be AOT compatible so the app can work 
-	-> Vestas Wind Systems				(1:12:40)		
-
-.Net Aspire		(1:15:05)
-	-> a cloud ready stack for building observable, production ready, distributed apps 
-	-> Components		 : redis, RabbitMQ, SQL, PostgreSQL, CosmoDB
-	-> Developer Dashboard: structed logs, metrics, distributed traces, dependecies 
-		-> it's something like Portainer
-		-> first line of Debuging for distribute app
-		-> single command operation
-		-> express application topology in C#
-		-> deploy to the cloud
-	-> Demo		(1:17:15)
-		-> Aspire templates(2)	(1:21:10)
-		-> pull it to the cloud(from powershell)
-			-> azd init
-			-> azd up
-	-> Demo keyNote		(1:24:40)
-	-> it's in preview	(1:25:35 )
-
-Visual Studio 2022 v17.8 GA		(1:26:10)
-	-> modern developmetn for .Net 8 using WSL2
-	-> GitHub Copilot boosts your developer output with AI
-	-> improve collaboration, add reviews to pull requests
-
-Foundation C# Certification		(1:26:29)
-	-> https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/#create-and-run-simple-c-sharp-console-applications
-	-> https://learn.microsoft.com/ro-ro/training/dotnet/?WT.mc_id=friends-0000-jamont
-
-
-- - - 2. Full stack web UI with Blazor in .NET 8 (1:31:37)- - -
+﻿- - - 3. Full stack web UI with Blazor in .NET 8 (1:31:37)- - -
 (https://www.youtube.com/watch?v=YwZdtLEtROA&list=PLdo4fOcmZ0oULyHSPBx-tQzePOYlhvrAU&index=3&ab_channel=dotnet)
 
 Full Stack web UI with Blazor 
@@ -144,21 +96,7 @@ Minimal API/ MVC Controllers -> return a RazorComponentResult
 JS-based web app	-> use Blazor components as custom elements
 
 
-- - - 3. Building Cloud Native apps with .NET 8 - - -
-.Net Aspire
--> is a stack for building resilient, observable, and configurable cloud-native applications with .Net
--> includes a curated set of components enhanced for cloud-native fundamentals including 
-Telemetry, Resilience, Configuration, Health Checks and composition
--> makes it easy to discover, acquired and configure essential dependecies for cloud-native
-apps on day 1 and day 100
-Demo (8:25) -> 
-	-> create Blazor Web App -> Server 		
-	-> create a MinimalAPI app
-	-> adding Aspire to Blazore App(will add 2 more projects)
-		-> Aspire.AppHost
-		-> Aspire.ServiceDefaults
-	-> API -> Add-> .NET Aspire Orchestrator Support (18:25) 
-	-> start the appHost project
+
 		
 
 					

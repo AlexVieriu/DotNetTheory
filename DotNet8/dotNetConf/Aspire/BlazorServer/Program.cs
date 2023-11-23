@@ -4,11 +4,9 @@ using BlazorServer.Components;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.AddRedisOutputCache("cache2");
 
-builder.Services.AddHttpClient<WeatherApiClient>(c =>
-{
-    // no port because we take care of that on the AspireHost project
-    // the name must match the one in Host
+builder.Services.AddHttpClient<WeatherApiClient>(c =>{
     c.BaseAddress = new("http://weather"); 
 });
 
@@ -19,6 +17,7 @@ builder.Services.AddRazorComponents()
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
+app.UseOutputCache();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
