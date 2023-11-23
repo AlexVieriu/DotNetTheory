@@ -72,3 +72,9 @@ Demo (8:25)
 	-> in Aspire u can see the Redis container
 	-> if u fo to trace, it's checks if the thing is there, if not, is going to the API and take it
 			
+-> aspire components cand bring in schemas (53:00)
+	-> appsettings.json : we get a lot of intelligence when we configure appsettings
+	"Aspire": {"StackExchange": {"Redis": {"ConfigurationOptions": {"AbortOnConnectFail":}}}}
+
+-> how to deploy (54:30)
+dotnet run --publisher manifest --output-path manifest.json
