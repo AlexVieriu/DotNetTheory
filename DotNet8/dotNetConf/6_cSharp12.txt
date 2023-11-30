@@ -1,0 +1,2 @@
+- - - 6. C# 12 features - - -
+Check Nick Chapsas: https://www.youtube.com/watch?v=Gv2uBJzBAms&t=328s&ab_channel=NickChapsas

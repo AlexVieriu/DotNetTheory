@@ -1,0 +1,40 @@
+- - - 5. Performance improvements in .NET 8 - - -
+
+(01:35) .NET MAUI: Fundamentals & Quality 
+
+(02:30) NativeAOT on iOP - Experimental Support 
+	-> NativeAOT is not Mono -- basically a new runtime
+	-> NativeAOT apps have faster startup time and smaller memory footprints
+	-> Future/.NET 9 plans
+	 -> improve "trimmability" of .NET MAUI: https://github.com/dotnet/maui/issues/18658
+	 -> experiment how NativeAOT might work on Android
+
+
+(03:43) Memory leaks on Apple Platforms 
+	-> https://github.com/dotnet/maui/wiki/Memory-Leaks
+	-> Roslyn analyzer for IOS circular references
+	-> take for ex the following Swift code:
+		-> Parent -> Child, and Child -> Parent
+		-> the same situation can accur in C#
+
+(05:13) Android: Improvements in Java interop
+(07:35) dotnet-trace, dotnet-gcdump
+(09:00) Resource links
+(09:51) ASP.NET Core Performance Improvements
+(10:04) Blog post https://devblogs.microsoft.com/dotnet...
+(10:52) .NET 8 API Performance Benchmarks
+(12:20) Header Parsing in Kestrel
+(14:16) Allocation Savings
+(15:02) Kestrel Header Parsing Optimization
+(16:10) Http.sys
+(20:52) Native AOT
+(22:47) Reducing Size - Really Minimal API
+(24:01) Request Delegate Generator (RDG)
+(27:55) Resource Links
+(28:37) Performance Improvements in .NET 8 https://devblogs.microsoft.com/dotnet...
+(30:02) Dynamic PGO
+(33:15) Demo
+(38:06) JSON Fast Paths
+(41:00) SearchValues
+(44:15) Demo
+(48:26) Wrap

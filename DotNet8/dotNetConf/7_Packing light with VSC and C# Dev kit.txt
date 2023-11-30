@@ -1,0 +1,26 @@
+- - - 7.Packing light with VSC and C# Dev kit - - -
+
+CTRL+SHIFT+P -> Preference: Open User Settings
+	-> format on save
+	-> format on type
+	-> sidebar
+	-> hotreload
+
+(15:00) Themes
+	-> Preferences: Color Theme
+
+(16:00) Dev Kit
+	-> ctrl+shift+p -> Help:welcome -> C# Dev Kit (see the steps)
+	-> create new project template: .net new project
+
+(20:00) Demo: RudeGPT
+
+(23:44) Multiple Curser  
+	-> ctrl+shift+P: toggleMultiCursorModifier -> ctrl+shift+K (doesn't work)
+	-> rename a method: F2
+
+(36:51) 
+	-> Help -> Report issues
+
+(38:00) Resources:
+	-> https://www.theurlist.com/packing-light

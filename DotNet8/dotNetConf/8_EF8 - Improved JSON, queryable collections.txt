@@ -1,0 +1,51 @@
+** What's new in EF8 ** 
+https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew
+
+EF Core 8 Preview 4: Primitive collections and improved Contains
+https://devblogs.microsoft.com/dotnet/announcing-ef8-preview-4/
+
+Github EF Docs:
+https://github.com/dotnet/EntityFramework.Docs
+
+!!!Go throw the "What's new in EF8" is mandatory!!!!
+
+- - - 8. Entity Framework Core 8: Improved JSON, queryable collections , and more… - - - 
+
+Document Databases are good at:
+-> point read of document 
+-> scale out 
+
+Relational Databases:
+-> general-purpose queries
+-> transactions and consistency
+
+EF Core:
+-> leverage common patterns(LinQ, unit-of-work)
+-> leverage the specific power of each DB system
+-> promote best practices
+
+
+(2:07) Use JSON to send multi-value parameters for translations such as `List.Contains`
+https://copyprogramming.com/howto/entity-framework-core-where-clause-with-multiple-values
+(03:15) Mapping and querying collections of primitive types
+(10:55) Mapping to JSON columns using SQLite
+(13:53) Leverage the new support for performance improvements, e.g. when using Contains
+(16:42) Use C# structs with DDD value object semantics in your classes while still splitting the contents to multiple columns in the database
+(23:58) Raw SQL queries for unmapped types
+(27:53) Official `HierarchyId` support for EF Core on SQL Server
+(33:29) In Summary Improvements to lazy loading and the change tracking APIs
+(36:02) Many small enhancements to existing features (https://aka.ms/ef8-whats-new)
+(36:26) A MongoDB Provider for EFCore (https://aka.ms/efcore-mongodb)
+
+Summary
+-> Document and relational DBs both have strenghts
+	-> competitive enviroment is pushing both to do better 
+EF8:
+	-> expands on previous versions with common patterns for both 
+	-> uses 
+		-> first-class JSON support in the DB
+		-> with the rich EF model
+	-> to enable powerful patterns
+		-> primitive collections
+		-> collections of entities
+		-> parameter and inline collections(Improve "Contains" queries)

@@ -97,6 +97,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotNet Conf", "dotNet Conf"
 		DotNet8\dotNetConf\1_Welcome to dotNet8.txt = DotNet8\dotNetConf\1_Welcome to dotNet8.txt
 		DotNet8\dotNetConf\3_Full stack web UI with Blazor.txt = DotNet8\dotNetConf\3_Full stack web UI with Blazor.txt
 		DotNet8\dotNetConf\4_Building Cloud Native apps.txt = DotNet8\dotNetConf\4_Building Cloud Native apps.txt
+		DotNet8\dotNetConf\5_Performance Improvements.txt = DotNet8\dotNetConf\5_Performance Improvements.txt
+		DotNet8\dotNetConf\6_cSharp12.txt = DotNet8\dotNetConf\6_cSharp12.txt
+		DotNet8\dotNetConf\7_Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\7_Packing light with VSC and C# Dev kit.txt
+		DotNet8\dotNetConf\8_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\8_EF8 - Improved JSON, queryable collections.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "DotNet8\dotNetConf\Aspire\BlazorServer\BlazorServer.csproj", "{86902F8B-9BA5-4246-A9EF-E4B84CA06043}"
@@ -108,6 +112,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.AppHost", "DotNet8\dotNetConf\Aspire\Aspire.AppHost\Aspire.AppHost.csproj", "{DE23A292-534D-4221-BB09-1098A53F7756}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.ServiceDefaults", "DotNet8\dotNetConf\Aspire\Aspire.ServiceDefaults\Aspire.ServiceDefaults.csproj", "{40A0C89D-8334-428D-AA51-E6F5A963ABC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5_cSharp12", "5_cSharp12", "{5A9B5672-7842-4245-882A-E66F5FE62078}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cSharp12", "DotNet8\dotNetConf\5_cSharp12\cSharp12\cSharp12.csproj", "{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{75C7CB7D-88AF-4071-81AE-30964D9AB096}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSON data in EF8 core", "DotNet8\Others\JSON data in EF8 core\JSON data in EF8 core.csproj", "{B0A54C63-8B57-4ACE-BB15-02597E706969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -247,6 +259,14 @@ Global
 		{40A0C89D-8334-428D-AA51-E6F5A963ABC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A0C89D-8334-428D-AA51-E6F5A963ABC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40A0C89D-8334-428D-AA51-E6F5A963ABC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -296,6 +316,10 @@ Global
 		{C3E4D361-9582-47D7-872E-2282DB2D3404} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
 		{DE23A292-534D-4221-BB09-1098A53F7756} = {C3E4D361-9582-47D7-872E-2282DB2D3404}
 		{40A0C89D-8334-428D-AA51-E6F5A963ABC1} = {C3E4D361-9582-47D7-872E-2282DB2D3404}
+		{5A9B5672-7842-4245-882A-E66F5FE62078} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
+		{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9} = {5A9B5672-7842-4245-882A-E66F5FE62078}
+		{75C7CB7D-88AF-4071-81AE-30964D9AB096} = {A59DC99A-FC83-4289-A3B5-6EFFB18991CC}
+		{B0A54C63-8B57-4ACE-BB15-02597E706969} = {75C7CB7D-88AF-4071-81AE-30964D9AB096}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}
