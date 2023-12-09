@@ -1,0 +1,15 @@
+﻿global using Ardalis.GuardClauses;
+global using Ardalis.Result;
+global using Ardalis.SharedKernel;
+global using Ardalis.SmartEnum;
+global using Ardalis.Specification;
+global using Autofac;
+global using MediatR;
+global using Microsoft.Extensions.Logging;
+global using NimblePros.SampleToDo.Core.ContributorAggregate;
+global using NimblePros.SampleToDo.Core.ContributorAggregate.Events;
+global using NimblePros.SampleToDo.Core.Interfaces;
+global using NimblePros.SampleToDo.Core.ProjectAggregate;
+global using NimblePros.SampleToDo.Core.ProjectAggregate.Events;
+global using NimblePros.SampleToDo.Core.ProjectAggregate.Specifications;
+global using NimblePros.SampleToDo.Core.Services;

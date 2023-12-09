@@ -99,8 +99,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotNet Conf", "dotNet Conf"
 		DotNet8\dotNetConf\4_Building Cloud Native apps.txt = DotNet8\dotNetConf\4_Building Cloud Native apps.txt
 		DotNet8\dotNetConf\5_Performance Improvements.txt = DotNet8\dotNetConf\5_Performance Improvements.txt
 		DotNet8\dotNetConf\6_cSharp12.txt = DotNet8\dotNetConf\6_cSharp12.txt
-		DotNet8\dotNetConf\7_Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\7_Packing light with VSC and C# Dev kit.txt
-		DotNet8\dotNetConf\8_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\8_EF8 - Improved JSON, queryable collections.txt
+		DotNet8\dotNetConf\7_Clean Arhitecture.txt = DotNet8\dotNetConf\7_Clean Arhitecture.txt
+		DotNet8\dotNetConf\EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\EF8 - Improved JSON, queryable collections.txt
+		DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "DotNet8\dotNetConf\Aspire\BlazorServer\BlazorServer.csproj", "{86902F8B-9BA5-4246-A9EF-E4B84CA06043}"
@@ -120,6 +121,28 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{75C7CB7D-88AF-4071-81AE-30964D9AB096}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSON data in EF8 core", "DotNet8\Others\JSON data in EF8 core\JSON data in EF8 core.csproj", "{B0A54C63-8B57-4ACE-BB15-02597E706969}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7_Clean Arhitecture", "7_Clean Arhitecture", "{A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "7_Clean Arhitecture", "DotNet8\dotNetConf\7_Clean Arhitecture\", "{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52321"
+		Debug.AspNetCompiler.PhysicalPath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52321\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52321"
+		Release.AspNetCompiler.PhysicalPath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52321\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52321"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -267,6 +290,10 @@ Global
 		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -320,6 +347,8 @@ Global
 		{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9} = {5A9B5672-7842-4245-882A-E66F5FE62078}
 		{75C7CB7D-88AF-4071-81AE-30964D9AB096} = {A59DC99A-FC83-4289-A3B5-6EFFB18991CC}
 		{B0A54C63-8B57-4ACE-BB15-02597E706969} = {75C7CB7D-88AF-4071-81AE-30964D9AB096}
+		{A8DFEE83-840A-4E18-BB6B-C60D77F5A17C} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669} = {A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}

@@ -1,5 +1,7 @@
 ﻿- - - 4. Building Cloud Native apps with .NET 8 - - -
+
 .Net Aspire
+
 -> is a stack for building resilient, observable, and configurable cloud-native applications with .Net
 -> includes a curated set of components enhanced for cloud-native fundamentals including 
 Telemetry, Resilience, Configuration, Health Checks and composition

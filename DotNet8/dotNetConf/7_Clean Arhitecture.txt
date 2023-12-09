@@ -1,0 +1,111 @@
+-- 7. Clean Arhitecture with .NET Core 8 --
+
+https://www.nuget.org/packages/Ardalis.CleanArchitecture.Template
+
+Clean Architecture Template
+https://github.com/ardalis/CleanArchitecture
+
+eShopOnWeb Reference Application
+https://github.com/dotnet-architecture/eShopOnWeb
+
+Architect Modern Apps w/ASP.NET Core eBook
+https://dotnet.microsoft.com/en-us/learn/aspnet/architecture
+
+The architecture formely knows as
+-> Onion Architecture
+-> Hexagonal Architecture
+-> Ports and Adapters
+
+A domain-centric approach to organizing dependencies
+
+-> back in the date, apps were build with the DB as a centrel point
+-> dependence on infrastructure concerns is minimized; keeping focus on domain logic 
+
+When to use Clean Arhitecture?
+-> practicing Domain-Driven Design and want focus on domain model, not infrastructure
+-> complex business logic warrants higly testable arhitecture
+
+Want architecture to help enforce policies, rathe than relying on contributors 
+to consistently do the right thing
+	-> similar to strong types or field visibility constraints
+
+Two approaches to layered architecture 
+-> Traditional "N-Tier"
+	-> UI -> Business -> Data Access -> DB
+-> Clean Arhitecture
+	-> Inversion of Control
+
+(5:57) Demo
+https://www.nuget.org/packages/Ardalis.CleanArchitecture.Template/
+dotnet new clean-arch -n NimblePros.Sample
+cd D:\Programare\Proiecte\Theory\DotNet8\dotNetConf\7_Clean Arhitecture\NimblePros.Sample
+
+Clean Architecture Rules
+-> model all business rules and entities in the Core project
+-> all the dependencies flow flow toward the Core project 
+-> inner projects define interfaces; outer projects implement them
+
+(8:50) What belongs in the Core project 
+-> Interfaces		(explain what should happen)
+
+	-> Aggregates	(group together entities so they can have a relationship as part of a hole; ex: a purches order, an order with detail rows)
+					(when you grab/store the hole thing to/from the DB)
+					(that enforce the aggregate to enforce some rules)
+		
+		-> Entities (all of things that has and Id field)
+
+	-> Value Objects	
+
+	-> Domain Services	(here you can put logic that can't go to the Entities/Aggregates/Value Objects)
+						(stuff the are between different Aggregates or entities)
+	
+	-> Domain Exceptions (creating custom exception like "Customer dosn't exist exception", instead of breaking a NullException)
+
+-> Domain Events (if you have someone that adds a item to the card, you will want to have and event for that)
+				 (it is a really nice to decouple things)
+
+-> Event Handlers ()
+
+-> Speciafications	(are excellent and underused pattern for defining queries)
+					(if u have a problem and there are LINQ statements everywhere, specification help you pull that back into your domain model
+					where is centralized, it's testable, they're well named, and easy to reused)
+					(enums, validators, custom guard Clauses)
+
+(13:45) Demo
+-> in this case, a project is a bunch of to-do items on it and contributors are people that work on items
+-> it's like a simple trask tracking system
+-> the entities in the template are just stundard, but a lot of the bussines logic is encapsulated inside of them
+-> you can put most of the logic inside the entities so u can test it 
+-> handler use dependencies injection
+	NimblePros.SampleToDo.Core.ProjectAggregate
+	-> MarkComplete() can run without having any dependencies and still trigger things in order to happen
+
+
+(16:26) What about CQRS?
+-> Command/Query Responsibility Segregation
+-> Optional design addition to your arhitecture
+-> Has various benefits
+-> Most easily achived in a Use Cases(App Services) project
+
+What belongs in the Use Cases project?
+-> Commands 
+	-> Command Handlers 
+-> Queries
+	-> Query Handlers
+-> DTOs
+-> Behaviors
+
+(17:00) Demo
+
+
+(18:39) What belongs in the Infrastructure project?
+-> Repositories
+	-> DBContext classes
+	-> Cached Repositories
+-> Api Clients
+-> File System 
+	-> Azure Storage
+-> Emailing Implementations
+	-> SMS Implementations
+-> System Clock 
+

@@ -1,0 +1,9 @@
+﻿global using Ardalis.Result;
+global using Ardalis.SharedKernel;
+global using NimblePros.SampleToDo.Core.ContributorAggregate;
+global using NimblePros.SampleToDo.Core.ContributorAggregate.Specifications;
+global using NimblePros.SampleToDo.Core.Interfaces;
+global using NimblePros.SampleToDo.Core.ProjectAggregate;
+global using NimblePros.SampleToDo.Core.ProjectAggregate.Specifications;
+global using NimblePros.SampleToDo.UseCases.Projects;
+global using NimblePros.SampleToDo.UseCases.Projects.Update;
