@@ -109,3 +109,40 @@ What belongs in the Use Cases project?
 	-> SMS Implementations
 -> System Clock 
 
+(20:00)
+-> don't write everything in the repositories, because if u need to do some complex SQL query, it's hard to implement that, 
+instead, write a method helper, that u can write a sql query
+ex: 
+public async Task<IEnumerable<ContributorDTO>> ListAsync()
+{
+	var result = await _db.Contributors.FromSqlRaw("SELECT Id, Name FROM Contributors") // don't fetch other big columns
+		.Select(c => new ContributorDTO(c.Id, c.Name))
+		.ToListAsync();
+
+	return result;
+}
+
+(21:30) What belongs in the Web project 
+-> API Endpoints
+	-> Razor Pages 
+	-> Controllers
+	-> Views
+-> API Models
+	-> ViewModels
+-> Filters
+-> Model Binders
+-> Tag Helpers
+-> Composition Root 
+-> Other Services
+-> Interfaces
+
+(22:00) Demo
+-> u don;t have a lot of logic in the Web layer, only in the domain layer
+
+(23:45) The Shared Kernel
+-> Dommain-Driven Design term
+-> Holds common types shared between DDD apps
+-> Typically referenced by Core project(s)
+-> Ideally distributed as Nuget Packages
+
+(25:30) new HTTP File that yoou can add in VS so u don't need to use Swagger/Postman
