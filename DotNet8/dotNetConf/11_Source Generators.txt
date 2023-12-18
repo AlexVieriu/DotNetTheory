@@ -1,0 +1,74 @@
+- - - 11. Source Generators - - -
+
+Roslyn Feature
+	-> you can be part of the compilation cycle
+
+Compilation Runs -> | Source generator step of compilation		| -> Generated source code added as input to compilation | -> Compilation resumes
+					| -> analyze source code					| 														 |
+					| -> generate new source code				|  														 |
+
+
+Why Source Generators?
+-> you move from reflection into compile time
+-> unblocks AOT trimming
+
+(3:45) Demo
+(4:35) Running the Project
+
+Publish the ClassListConsole without AOT:
+cd "D:\Programare\Proiecte\Theory\DotNet8\dotNetConf\11_Source Generators\ClassListConsole"
+dotnet publish .\ClassListConsole.csproj -o .\normal
+
+(6:10) turn on AOT publishing to see the errors
+-> go to the project and uncomment the <PublishAot> (Ctrl+K+U)
+dotnet publish .\ClassListConsole.csproj -o .\aot
+
+-> compile the assembly and taking that assembly and compiling it into machine code for specific kind of machine
+-> it will give us a warning because we are using reflection with AOT
+
+(7:40) 
+-> the reflection was deleted, because AOT and reflection are not working together
+-> AOT compile it and then remove types that doesn't know that it needs
+-> "normal" folder size	: 9.5MB
+-> "AOT" folder size	: 155kb	
+
+(8:50) How do we fix this?
+-- ClassListGenerator --
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+Add NugetPackages
+Microsoft.CodeAnalysis.Analyzers
+Microsoft.CodeAnalysis.CSharp
+
+(11:23) 
+<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+-> for code generators property specific
+
+(18:16)
+-- ClassListConsole --
+-> comment 
+//var classTypes = Assembly.GetEntryAssembly()?
+//    .GetTypes()
+//    .Where(t => t.IsClass && t.IsPublic)
+//    .ToList();
+
+-> add the ClassListGenerator proj ref
+
+<ItemGroup>
+	<ProjectReference Include="..\ClassListGenerator\ClassListGenerator.csproj" 
+					OutputItemType="Analyzer"/>
+</ItemGroup>
+
+-> if it's not working in the main solution, switch the 11_Source_Generators.csproj
+
+
+(25:02)
+dotnet publish .\ClassListConsole.csproj -o .\aotsource
+-> run the release
+"D:\Programare\Proiecte\Theory\DotNet8\dotNetConf\11_Source Generators\ClassListConsole\aotsource\ClassListConsole.exe"
+
+A practical example:
+https://github.com/wilder-minds/MinimalApiDiscovery

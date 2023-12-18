@@ -94,14 +94,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Every Feature in Csharp12",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotNet Conf", "dotNet Conf", "{4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}"
 	ProjectSection(SolutionItems) = preProject
-		DotNet8\dotNetConf\1_Welcome to dotNet8.txt = DotNet8\dotNetConf\1_Welcome to dotNet8.txt
-		DotNet8\dotNetConf\3_Full stack web UI with Blazor.txt = DotNet8\dotNetConf\3_Full stack web UI with Blazor.txt
-		DotNet8\dotNetConf\4_Building Cloud Native apps.txt = DotNet8\dotNetConf\4_Building Cloud Native apps.txt
-		DotNet8\dotNetConf\5_Performance Improvements.txt = DotNet8\dotNetConf\5_Performance Improvements.txt
-		DotNet8\dotNetConf\6_cSharp12.txt = DotNet8\dotNetConf\6_cSharp12.txt
-		DotNet8\dotNetConf\7_Clean Arhitecture.txt = DotNet8\dotNetConf\7_Clean Arhitecture.txt
-		DotNet8\dotNetConf\8_ ASPNet Core Authentication Simplified.txt = DotNet8\dotNetConf\8_ ASPNet Core Authentication Simplified.txt
-		DotNet8\dotNetConf\9_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\9_EF8 - Improved JSON, queryable collections.txt
+		DotNet8\dotNetConf\01_Welcome to dotNet8.txt = DotNet8\dotNetConf\01_Welcome to dotNet8.txt
+		DotNet8\dotNetConf\03_Full stack web UI with Blazor.txt = DotNet8\dotNetConf\03_Full stack web UI with Blazor.txt
+		DotNet8\dotNetConf\04_Building Cloud Native apps.txt = DotNet8\dotNetConf\04_Building Cloud Native apps.txt
+		DotNet8\dotNetConf\05_Performance Improvements.txt = DotNet8\dotNetConf\05_Performance Improvements.txt
+		DotNet8\dotNetConf\06_cSharp12.txt = DotNet8\dotNetConf\06_cSharp12.txt
+		DotNet8\dotNetConf\07_Clean Arhitecture.txt = DotNet8\dotNetConf\07_Clean Arhitecture.txt
+		DotNet8\dotNetConf\08_ ASPNet Core Authentication Simplified.txt = DotNet8\dotNetConf\08_ ASPNet Core Authentication Simplified.txt
+		DotNet8\dotNetConf\09_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\09_EF8 - Improved JSON, queryable collections.txt
+		DotNet8\dotNetConf\11_Source Generators.txt = DotNet8\dotNetConf\11_Source Generators.txt
 		DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt
 	EndProjectSection
 EndProject
@@ -109,13 +110,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "DotNet8\dot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WepAPI", "DotNet8\dotNetConf\Aspire\WepAPI\WepAPI.csproj", "{D1A49777-391B-4F6D-B30E-418C8AA3CE12}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Building Cloud Native apps with dotNet 8", "4_Building Cloud Native apps with dotNet 8", "{C3E4D361-9582-47D7-872E-2282DB2D3404}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Building Cloud Native apps with dotNet 8", "04_Building Cloud Native apps with dotNet 8", "{C3E4D361-9582-47D7-872E-2282DB2D3404}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.AppHost", "DotNet8\dotNetConf\Aspire\Aspire.AppHost\Aspire.AppHost.csproj", "{DE23A292-534D-4221-BB09-1098A53F7756}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.ServiceDefaults", "DotNet8\dotNetConf\Aspire\Aspire.ServiceDefaults\Aspire.ServiceDefaults.csproj", "{40A0C89D-8334-428D-AA51-E6F5A963ABC1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5_cSharp12", "5_cSharp12", "{5A9B5672-7842-4245-882A-E66F5FE62078}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_cSharp12", "05_cSharp12", "{5A9B5672-7842-4245-882A-E66F5FE62078}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cSharp12", "DotNet8\dotNetConf\5_cSharp12\cSharp12\cSharp12.csproj", "{B273BA3A-68AC-4E5C-B391-F3BCC865CBF9}"
 EndProject
@@ -123,36 +124,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{75C7CB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSON data in EF8 core", "DotNet8\Others\JSON data in EF8 core\JSON data in EF8 core.csproj", "{B0A54C63-8B57-4ACE-BB15-02597E706969}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7_Clean Arhitecture", "7_Clean Arhitecture", "{A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_Clean Arhitecture", "07_Clean Arhitecture", "{A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "7_Clean Arhitecture", "DotNet8\dotNetConf\7_Clean Arhitecture\", "{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_52321"
-		Debug.AspNetCompiler.PhysicalPath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52321\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_52321"
-		Release.AspNetCompiler.PhysicalPath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52321\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "52321"
-		SlnRelativePath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "8_ASPNET Core Auth Simplified", "8_ASPNET Core Auth Simplified", "{29F67EEF-F3C6-4337-B5DE-79638EE9E629}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08_ASPNET Core Auth Simplified", "08_ASPNET Core Auth Simplified", "{29F67EEF-F3C6-4337-B5DE-79638EE9E629}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAuthInDotNet8", "DotNet8\dotNetConf\8_ASPNET Core Auth Simplified\EasyAuthInDotNet8\EasyAuthInDotNet8.csproj", "{C1E19CAD-D853-4D52-A18A-AEF7A92BF23F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "DotNet8\dotNetConf\8_ASPNET Core Auth Simplified\BlazorApp1\BlazorApp1\BlazorApp1.csproj", "{06C4A00C-EF74-4A09-B62A-1BC9A661E1DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "DotNet8\dotNetConf\8_ASPNET Core Auth Simplified\BlazorApp1\BlazorApp1\BlazorApp1.csproj", "{06C4A00C-EF74-4A09-B62A-1BC9A661E1DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1.Client", "DotNet8\dotNetConf\8_ASPNET Core Auth Simplified\BlazorApp1\BlazorApp1.Client\BlazorApp1.Client.csproj", "{FBC81BA0-4770-46EF-8598-5D6F0278C1E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1.Client", "DotNet8\dotNetConf\8_ASPNET Core Auth Simplified\BlazorApp1\BlazorApp1.Client\BlazorApp1.Client.csproj", "{FBC81BA0-4770-46EF-8598-5D6F0278C1E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11_Source Generators", "11_Source Generators", "{2500B30B-2381-4D9F-9388-FC36296FED2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassListConsole", "DotNet8\dotNetConf\11_Source Generators\ClassListConsole\ClassListConsole.csproj", "{C2E08A63-1720-4785-B218-066202D5A2FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassListGenerator", "DotNet8\dotNetConf\11_Source Generators\ClassListGenerator\ClassListGenerator.csproj", "{8647C3F2-1C04-4A49-9777-92C0A879E134}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -300,10 +286,6 @@ Global
 		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0A54C63-8B57-4ACE-BB15-02597E706969}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{C1E19CAD-D853-4D52-A18A-AEF7A92BF23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C1E19CAD-D853-4D52-A18A-AEF7A92BF23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1E19CAD-D853-4D52-A18A-AEF7A92BF23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -316,6 +298,14 @@ Global
 		{FBC81BA0-4770-46EF-8598-5D6F0278C1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC81BA0-4770-46EF-8598-5D6F0278C1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC81BA0-4770-46EF-8598-5D6F0278C1E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E08A63-1720-4785-B218-066202D5A2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E08A63-1720-4785-B218-066202D5A2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E08A63-1720-4785-B218-066202D5A2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E08A63-1720-4785-B218-066202D5A2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -370,11 +360,13 @@ Global
 		{75C7CB7D-88AF-4071-81AE-30964D9AB096} = {A59DC99A-FC83-4289-A3B5-6EFFB18991CC}
 		{B0A54C63-8B57-4ACE-BB15-02597E706969} = {75C7CB7D-88AF-4071-81AE-30964D9AB096}
 		{A8DFEE83-840A-4E18-BB6B-C60D77F5A17C} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
-		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669} = {A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}
 		{29F67EEF-F3C6-4337-B5DE-79638EE9E629} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
 		{C1E19CAD-D853-4D52-A18A-AEF7A92BF23F} = {29F67EEF-F3C6-4337-B5DE-79638EE9E629}
 		{06C4A00C-EF74-4A09-B62A-1BC9A661E1DC} = {29F67EEF-F3C6-4337-B5DE-79638EE9E629}
 		{FBC81BA0-4770-46EF-8598-5D6F0278C1E4} = {29F67EEF-F3C6-4337-B5DE-79638EE9E629}
+		{2500B30B-2381-4D9F-9388-FC36296FED2B} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
+		{C2E08A63-1720-4785-B218-066202D5A2FD} = {2500B30B-2381-4D9F-9388-FC36296FED2B}
+		{8647C3F2-1C04-4A49-9777-92C0A879E134} = {2500B30B-2381-4D9F-9388-FC36296FED2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}
