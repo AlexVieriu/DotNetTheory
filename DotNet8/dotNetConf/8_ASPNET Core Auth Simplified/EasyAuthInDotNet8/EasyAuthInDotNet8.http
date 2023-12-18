@@ -1,0 +1,10 @@
+@EasyAuthInDotNet8_HostAddress = https://localhost:7160
+
+GET {{EasyAuthInDotNet8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{EasyAuthInDotNet8_HostAddress}}/weatherforecast
+
+###
