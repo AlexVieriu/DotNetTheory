@@ -103,6 +103,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotNet Conf", "dotNet Conf"
 		DotNet8\dotNetConf\08_ ASPNet Core Authentication Simplified.txt = DotNet8\dotNetConf\08_ ASPNet Core Authentication Simplified.txt
 		DotNet8\dotNetConf\09_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\09_EF8 - Improved JSON, queryable collections.txt
 		DotNet8\dotNetConf\11_Source Generators.txt = DotNet8\dotNetConf\11_Source Generators.txt
+		DotNet8\dotNetConf\14_Containers advancements in dotNET 8 .txt = DotNet8\dotNetConf\14_Containers advancements in dotNET 8 .txt
 		DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt
 	EndProjectSection
 EndProject
@@ -139,6 +140,31 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassListConsole", "DotNet8\dotNetConf\11_Source Generators\ClassListConsole\ClassListConsole.csproj", "{C2E08A63-1720-4785-B218-066202D5A2FD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassListGenerator", "DotNet8\dotNetConf\11_Source Generators\ClassListGenerator\ClassListGenerator.csproj", "{8647C3F2-1C04-4A49-9777-92C0A879E134}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "7_Clean Arhitecture", "DotNet8\dotNetConf\7_Clean Arhitecture\", "{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52321"
+		Debug.AspNetCompiler.PhysicalPath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52321\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52321"
+		Release.AspNetCompiler.PhysicalPath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52321\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52321"
+		SlnRelativePath = "DotNet8\dotNetConf\7_Clean Arhitecture\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "14_Containers advancements in dotNET 8", "14_Containers advancements in dotNET 8", "{796D4F62-3644-4661-82EB-7A72C9A84599}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hello_dotnet", "DotNet8\dotNetConf\14_Containers advancements in dotNet 8\hello_dotnet.csproj", "{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -306,6 +332,14 @@ Global
 		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8647C3F2-1C04-4A49-9777-92C0A879E134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -367,6 +401,9 @@ Global
 		{2500B30B-2381-4D9F-9388-FC36296FED2B} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
 		{C2E08A63-1720-4785-B218-066202D5A2FD} = {2500B30B-2381-4D9F-9388-FC36296FED2B}
 		{8647C3F2-1C04-4A49-9777-92C0A879E134} = {2500B30B-2381-4D9F-9388-FC36296FED2B}
+		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669} = {A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}
+		{796D4F62-3644-4661-82EB-7A72C9A84599} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
+		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41} = {796D4F62-3644-4661-82EB-7A72C9A84599}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}

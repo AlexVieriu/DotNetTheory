@@ -1,0 +1,28 @@
+- - - 14. Containers advancements in .NET 8. - - -
+
+(5:30) Demo
+<!--<PublishTrimmed>true</PublishTrimmed>-->
+<!--<ContainerFamily>jammy-chiseled</ContainerFamily>-->
+
+<!--<PublishAot>true</PublishAot>-->
+<!--<ContainerBaseImage>mcr.microsoft.com/dotnet/nightly/runtime-de</ContainerBaseImage>-->
+
+Microsoft.NET.Build.Containers
+
+(6:44) Containerize the project
+cd "D:\Programare\Proiecte\Theory\DotNet8\dotNetConf\14_Containers advancements in dotNet 8"
+open docker desktop
+dotnet publish -t:PublishContainer
+
+docker image list hello_dotnet:latest	(195Mb)	
+-> it is kind of big image
+
+-> uncomment: <PublishTrimmed>true</PublishTrimmed>
+dotnet publish -t:PublishContainer
+
+Error:
+error MSB4018: Microsoft.NET.Build.Con
+tainers.BaseImageNotFoundException: The RuntimeIdentifier 'win-x64' is not supported by dotnet/runtime-deps:8.0. 
+The supported RuntimeIdentifiers are linux-x64,linux-arm,linux-arm64
+
+https://github.com/microsoft/WindowsAppSDK/issues/3842
