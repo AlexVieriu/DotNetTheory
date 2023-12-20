@@ -17,6 +17,9 @@ dotnet publish -t:PublishContainer
 docker image list hello_dotnet:latest	(195Mb)	
 -> it is kind of big image
 
+(9:02) Trimming the app
+-> inspect the code that your wrote, find all the code that references it and remove everything else
+
 -> uncomment: <PublishTrimmed>true</PublishTrimmed>
 dotnet publish -t:PublishContainer
 
@@ -26,3 +29,67 @@ tainers.BaseImageNotFoundException: The RuntimeIdentifier 'win-x64' is not suppo
 The supported RuntimeIdentifiers are linux-x64,linux-arm,linux-arm64
 
 https://github.com/microsoft/WindowsAppSDK/issues/3842
+
+(10:32) ContainerFamily
+<ContainerFamily>jammy-chiseled</ContainerFamily>
+
+-> tells the SDK, detect the runtime image but use this "jammy-chiseled" instead
+dotnet publish -t:PublishContainer -p ContainerImageTag=chiseled
+
+docker image list hello_dotnet:chiseled	(85Mb)
+
+Tradeoffs for chiseled image:
+-> chiseled image allow operating in a rootless mode of execution, the use doesn't a have a lot of permission 
+that you may expect 
+-> you can't create files in the app 
+-> you can't run commands like "update" because permission is denied
+-> we can't go inside of a file 
+
+(12:20)
+Works:
+	docker run -it --rm --entrypoint /bin/bash hello_dotnet:lastest
+Doesn't work:
+	docker run -it --rm --entrypoint /bin/bash hello_dotnet:chiseled
+
+(15:45) PublishAot
+dotnet publish -t:PublishContainer -p ContainerImageTag=aot
+
+error MSB4018: Microsoft.NET.Build.Con
+tainers.BaseImageNotFoundException: The RuntimeIdentifier 'win-x64' is not supported by dotnet/runtime-deps:8.0-jammy-chiseled. 
+The supported RuntimeIdentifiers are linux-x64,linux-arm,linux-arm64
+
+Copy from PoweShell: CTRL + Shift + C
+
+(18:41) 
+<ContainerBaseImage>mcr.microsoft.com/dotnet/nightly/runtime-deps:8.0-jammy-chiseled-aot</ContainerBaseImage> (10.9MB)
+
+dotnet publish -t:PublishContainer -p ContainerImageTag=aot
+docker run hello-dotnet:aot-deps
+
+(20:13)
+-> cproj. (only let jammy-chiseled, the rest comment it)
+
+dotnet publish -t:PublishContainer -p ContainerImageTag=arm64 --arch arm64
+
+error MSB4018: Microsoft.NET.Build.Con
+tainers.BaseImageNotFoundException: The RuntimeIdentifier 'win-arm64' is not supported by dotnet/runtime:8.0-jammy-chiseled. The supported RuntimeIdentifiers are
+linux-x64,linux-arm,linux-arm64
+
+
+docker run hello-dotnet:arm64
+dotnet publish -t:PublishContainer -p ContainerImageTag=arm64 --arch arm64 -p ContainerRegistry=chuckcontainertesting.azreucr.io
+
+-> we are pushing to a azure registry created
+
+"Push to registry":
+When it comes to Docker containers, "pushing to Registry" refers to the process of uploading a container 
+image to a central repository known as a registry. 
+This allows other users to easily download and run the image without having to build it from scratch. 
+Registries are typically hosted by cloud providers, such as Docker Hub or AWS Elastic Container Registry (ECR), 
+or can be self-hosted on-premises.
+
+-> if u need to pull from the repo, u need to be authenticated
+docker pull chuskcontainertesting.azurecr.io/hello_dotnet:arm64
+
+(24:45)
+https://github.com/richlander/container-workshop
