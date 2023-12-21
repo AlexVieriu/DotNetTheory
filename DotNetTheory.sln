@@ -93,19 +93,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Every Feature in Csharp12", "DotNet8\Nick Chapsas\Every Feature in C#12\Every Feature in Csharp12\Every Feature in Csharp12.csproj", "{ADCEE357-5C70-451A-9181-C3670CD5B050}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotNet Conf", "dotNet Conf", "{4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}"
-	ProjectSection(SolutionItems) = preProject
-		DotNet8\dotNetConf\01_Welcome to dotNet8.txt = DotNet8\dotNetConf\01_Welcome to dotNet8.txt
-		DotNet8\dotNetConf\03_Full stack web UI with Blazor.txt = DotNet8\dotNetConf\03_Full stack web UI with Blazor.txt
-		DotNet8\dotNetConf\04_Building Cloud Native apps.txt = DotNet8\dotNetConf\04_Building Cloud Native apps.txt
-		DotNet8\dotNetConf\05_Performance Improvements.txt = DotNet8\dotNetConf\05_Performance Improvements.txt
-		DotNet8\dotNetConf\06_cSharp12.txt = DotNet8\dotNetConf\06_cSharp12.txt
-		DotNet8\dotNetConf\07_Clean Arhitecture.txt = DotNet8\dotNetConf\07_Clean Arhitecture.txt
-		DotNet8\dotNetConf\08_ ASPNet Core Authentication Simplified.txt = DotNet8\dotNetConf\08_ ASPNet Core Authentication Simplified.txt
-		DotNet8\dotNetConf\09_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\09_EF8 - Improved JSON, queryable collections.txt
-		DotNet8\dotNetConf\11_Source Generators.txt = DotNet8\dotNetConf\11_Source Generators.txt
-		DotNet8\dotNetConf\14_Containers advancements in dotNET 8 .txt = DotNet8\dotNetConf\14_Containers advancements in dotNET 8 .txt
-		DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\Packing light with VSC and C# Dev kit.txt
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "DotNet8\dotNetConf\Aspire\BlazorServer\BlazorServer.csproj", "{86902F8B-9BA5-4246-A9EF-E4B84CA06043}"
 EndProject
@@ -164,7 +151,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "7_Clean Arhitecture", "DotN
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "14_Containers advancements in dotNET 8", "14_Containers advancements in dotNET 8", "{796D4F62-3644-4661-82EB-7A72C9A84599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hello_dotnet", "DotNet8\dotNetConf\14_Containers advancements in dotNet 8\hello_dotnet.csproj", "{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hello_dotnet", "DotNet8\dotNetConf\14_Containers advancements in dotNet 8\hello_dotnet.csproj", "{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "15_Configuration in Depth", "15_Configuration in Depth", "{85877FF1-F078-4212-A8E7-42D968B37D98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Documentation", "_Documentation", "{47E7BB10-68D0-4EA9-9D43-1608FEC43E48}"
+	ProjectSection(SolutionItems) = preProject
+		DotNet8\dotNetConf\_Documentation\01_Welcome to dotNet8.txt = DotNet8\dotNetConf\_Documentation\01_Welcome to dotNet8.txt
+		DotNet8\dotNetConf\_Documentation\03_Full stack web UI with Blazor.txt = DotNet8\dotNetConf\_Documentation\03_Full stack web UI with Blazor.txt
+		DotNet8\dotNetConf\_Documentation\04_Building Cloud Native apps.txt = DotNet8\dotNetConf\_Documentation\04_Building Cloud Native apps.txt
+		DotNet8\dotNetConf\_Documentation\05_Performance Improvements.txt = DotNet8\dotNetConf\_Documentation\05_Performance Improvements.txt
+		DotNet8\dotNetConf\_Documentation\06_cSharp12.txt = DotNet8\dotNetConf\_Documentation\06_cSharp12.txt
+		DotNet8\dotNetConf\_Documentation\07_Clean Arhitecture.txt = DotNet8\dotNetConf\_Documentation\07_Clean Arhitecture.txt
+		DotNet8\dotNetConf\_Documentation\08_ ASPNet Core Authentication Simplified.txt = DotNet8\dotNetConf\_Documentation\08_ ASPNet Core Authentication Simplified.txt
+		DotNet8\dotNetConf\_Documentation\09_EF8 - Improved JSON, queryable collections.txt = DotNet8\dotNetConf\_Documentation\09_EF8 - Improved JSON, queryable collections.txt
+		DotNet8\dotNetConf\_Documentation\11_Source Generators.txt = DotNet8\dotNetConf\_Documentation\11_Source Generators.txt
+		DotNet8\dotNetConf\_Documentation\14_Containers advancements in dotNET 8 .txt = DotNet8\dotNetConf\_Documentation\14_Containers advancements in dotNET 8 .txt
+		DotNet8\dotNetConf\_Documentation\15_Configuration in Depth.txt = DotNet8\dotNetConf\_Documentation\15_Configuration in Depth.txt
+		FileOptions.cs = FileOptions.cs
+		DotNet8\dotNetConf\_Documentation\Packing light with VSC and C# Dev kit.txt = DotNet8\dotNetConf\_Documentation\Packing light with VSC and C# Dev kit.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration in Depth", "DotNet8\dotNetConf\15_Configuration in Depth\Configuration in Depth.csproj", "{88E9822F-FCA9-4957-80BD-F1A02A83CEB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -340,6 +348,10 @@ Global
 		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88E9822F-FCA9-4957-80BD-F1A02A83CEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E9822F-FCA9-4957-80BD-F1A02A83CEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E9822F-FCA9-4957-80BD-F1A02A83CEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E9822F-FCA9-4957-80BD-F1A02A83CEB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -404,6 +416,9 @@ Global
 		{C875E1FF-658A-4DD5-9E5F-1CDD86E47669} = {A8DFEE83-840A-4E18-BB6B-C60D77F5A17C}
 		{796D4F62-3644-4661-82EB-7A72C9A84599} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
 		{E602EA47-8E36-45DE-BE73-E6BC2D36DD41} = {796D4F62-3644-4661-82EB-7A72C9A84599}
+		{85877FF1-F078-4212-A8E7-42D968B37D98} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
+		{47E7BB10-68D0-4EA9-9D43-1608FEC43E48} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
+		{88E9822F-FCA9-4957-80BD-F1A02A83CEB4} = {85877FF1-F078-4212-A8E7-42D968B37D98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}

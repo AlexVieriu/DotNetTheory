@@ -1,0 +1,81 @@
+- - - 15. Configuration in Depht - - -
+
+Samples: https://github.com/codebytes/dotnet-configuration-in-depth
+https://chris-ayers.com/
+
+What is configuration?
+-> Settings	
+	-> retry times
+	-> queue lenght
+
+-> Feature Flags
+	-> per user
+	-> percentage
+
+-> Secrets
+	-> connection strings
+	-> app registration
+
+When is configuration applied?
+-> compile time
+-> run time
+
+
+Configuration Providers (.jpg)
+Order Matters			(.jpg)
+Keys are flattened	(support nested)
+
+(4:00) Out of the box
+
+Console
+-> no configuration 
+
+ASP.NET
+-> Json
+	-> appsettings.json
+	-> appsettings.{Environment}.json
+
+-> Environment Variables
+-> Command Line Variables
+-> User Secrets
+
+(4:12) Configuration Providers
+-> File-based 
+	-> JSON
+	-> XML
+	-> INI
+	-> Key-per-file
+
+-> Others
+	-> Environment variables
+	-> Command-line
+	-> In-Memory
+	-> User Secrets
+	-> Azure Key Vault
+	-> Azure App Configuration
+
+Demo(5:07)
+-> create a console app
+
+Microsoft.Extensions.Configuration
+Microsoft.Extensions.Configuration.Json
+
+cd "D:\Programare\Proiecte\Theory\DotNet8\dotNetConf\15_Configuration in Depth"
+
+(7:34) Full tutorial about using Secrets
+https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows
+
+
+(15:34) The Options Pattern
+
+Interface Segregation Principle(ISP)
+	-> scenarios (classes) that depend on configuration settings depend only on the 
+	configuration settings that they use
+
+Separation of Concerns
+	-> settings for different parts of the app aren't dependent or coupled to one another
+
+An Option Class
+	-> must be non-abstract with a public parameterless constructor
+	-> contain public read-write properties to bind(fields are not bound)
+
