@@ -1,0 +1,40 @@
+- - - 19. What's new in System.Text.Json - - -
+
+-> high performance JSON library
+-> focus on security and compliance
+-> first shipped with .Net Core 3 (2019)
+
+
+(1:21)
+System.Text.Json 6 
+-> source generator
+-> mutable JSON DOM (JsonNode)
+-> IAsyncEnumerable support
+
+System.Text.Json 7
+-> Contract Customization
+-> Type Hierarchies (polymorphism)
+-> required member support
+
+System.Text.Json 8
+-> Source Generator Themes
+	-> Nativ AOT improvements
+		-> functional improvements, size reduction
+
+	-> ASP.NET Core interop improvements
+		-> easier to register source generators, size reduction
+
+	-> Bugfixes and reliability improvements
+		-> closing the functional gap with reflection
+
+Bard:
+Why use source generators in C#? What is the use case? 
+Why not write code normally and why write it at compile time? 
+Give me a real world example with code. 
+
+(3:30) Functional Improvements
+-> required and init member support 
+-> polymorphism and unspeakable type support
+-> string enum support for Native AOT
+
+(4:07) Demo
