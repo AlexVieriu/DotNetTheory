@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "watch CodeCop010",
+			"file": "D:\\Programare\\Proiecte\\Theory\\DotNet8\\Nick Chapsas\\CodeCop010\\CodeCop010.csproj",
+			"problemMatcher": [],
+			"label": "dotnet: watch CodeCop010",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
