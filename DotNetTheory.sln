@@ -178,6 +178,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "19_What s new in System.Tex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetAotDemo", "DotNet8\dotNetConf\19_What s new in System.Text.Json\AspNetAotDemo.csproj", "{E733065B-C513-42B4-B397-84CFC01F35A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCop010", "DotNet8\Nick Chapsas\CodeCop010\CodeCop010.csproj", "{2791AF71-A452-4286-B1F9-99B8283B45F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -360,6 +362,10 @@ Global
 		{E733065B-C513-42B4-B397-84CFC01F35A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E733065B-C513-42B4-B397-84CFC01F35A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E733065B-C513-42B4-B397-84CFC01F35A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2791AF71-A452-4286-B1F9-99B8283B45F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2791AF71-A452-4286-B1F9-99B8283B45F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2791AF71-A452-4286-B1F9-99B8283B45F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2791AF71-A452-4286-B1F9-99B8283B45F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -429,6 +435,7 @@ Global
 		{88E9822F-FCA9-4957-80BD-F1A02A83CEB4} = {85877FF1-F078-4212-A8E7-42D968B37D98}
 		{D5242BC1-C6E0-4CE1-9B98-7525F6A516A5} = {4D4569A2-602D-4A81-82F2-ADD40A2B3DB5}
 		{E733065B-C513-42B4-B397-84CFC01F35A3} = {D5242BC1-C6E0-4CE1-9B98-7525F6A516A5}
+		{2791AF71-A452-4286-B1F9-99B8283B45F5} = {046F44D2-7313-49C7-A9C8-0B0F73D1BB47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}
