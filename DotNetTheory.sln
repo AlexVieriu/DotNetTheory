@@ -186,6 +186,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduling.ConsoleApp", "Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduling.Api", "DotNet8\Nick Chapsas\Scheduling\Scheduling.Api\Scheduling.Api.csproj", "{D30CC21F-E307-49B4-BBDC-2472DD9647AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deconstruction", "dotnet8\nick chapsas\deconstruction\Deconstruction.csproj", "{7EE3950B-E68D-4670-B78C-7F7B66DF5E90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -380,6 +382,10 @@ Global
 		{D30CC21F-E307-49B4-BBDC-2472DD9647AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D30CC21F-E307-49B4-BBDC-2472DD9647AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D30CC21F-E307-49B4-BBDC-2472DD9647AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE3950B-E68D-4670-B78C-7F7B66DF5E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE3950B-E68D-4670-B78C-7F7B66DF5E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE3950B-E68D-4670-B78C-7F7B66DF5E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE3950B-E68D-4670-B78C-7F7B66DF5E90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -453,6 +459,7 @@ Global
 		{71DAEA22-42AA-470D-87A1-EC4C5F5E20C7} = {046F44D2-7313-49C7-A9C8-0B0F73D1BB47}
 		{3A0E7EFF-A1E4-4F42-8B47-6D7FA57E651B} = {71DAEA22-42AA-470D-87A1-EC4C5F5E20C7}
 		{D30CC21F-E307-49B4-BBDC-2472DD9647AF} = {71DAEA22-42AA-470D-87A1-EC4C5F5E20C7}
+		{7EE3950B-E68D-4670-B78C-7F7B66DF5E90} = {046F44D2-7313-49C7-A9C8-0B0F73D1BB47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB0883EB-2C2A-438A-9E63-8305B0139289}
